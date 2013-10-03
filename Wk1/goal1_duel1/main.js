@@ -46,6 +46,7 @@ var playerTwoName = "Prego";
 var playerTwoHealth = 100;
 var playerTwoDamage = 50;
 
+var round = 1;
 
 alert(playerOneName + ":" + playerOneHealth+ " "+ "**START**" + " "+ playerTwoName + ":" + playerTwoHealth);
 
@@ -62,24 +63,23 @@ function fight(){
         var finalDamageTwo = Math.floor((Math.random()*(playerOneDamage-minDamageOne)+minDamageTwo));
 
 
+
         playerOneHealth-=finalDamageOne;
         playerTwoHealth-=finalDamageTwo;
 
         //console.log(playerOneHealth);
         //console.log(playerTwoHealth);
 
-       console.log(playerOneName + ":" + playerOneHealth+ " " + "ROUND " + i + " "+ playerTwoName + ":" + playerTwoHealth);
-
-
         var results = winnerCheck();
 
-             console.log(results);
+        if(results==="NO WINNER"){
+            alert(playerOneName + ":" + playerOneHealth+ " " + "**ROUND " + round + " OVER**" + " "+ playerTwoName + ":" + playerTwoHealth);
+            round++
+        }   else  {
 
-            //alert(playerOneName+":"+ playerOneHealth-finalDamageOne +"ROUND " + i + playerTwoName +":" + playerTwoHealth-finalDamageTwo);
-
-
-//          console.log(finalDamageOne + "one");
-//          console.log(finalDamageTwo + "two");
+            alert(results);
+            break
+        }
 
     }
 }
@@ -88,23 +88,21 @@ function fight(){
 
 function winnerCheck(){
 
-    console.log("in winnerCheck");
+    //console.log("in winnerCheck");
 
-    var result = "nowinner";
+    var result = "NO WINNER";
 
-    if(playerOneHealth<1){
+    if(playerOneHealth<1 && playerTwoHealth<1){
+        result=playerOneName + " and " + playerTwoName + " both die!";
+    }
+    else if(playerOneHealth<1){
         result=playerTwoName +" wins!";
     }
     else if(playerTwoHealth<1){
         result=playerOneName +" wins!";
     }
-    else if(playerOneHealth<1 && playerTwoHealth<1){
-        result=playerOneName + " and " + playerTwoName + "You both die!";
-    }
 
    return result
-
-
 
 }
 
