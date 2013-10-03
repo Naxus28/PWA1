@@ -4,7 +4,7 @@
     <list default="true" id="fb7a53bf-c4cd-4fb1-878a-b6eaef69583f" name="Default" comment="" />
     <ignored path="Wk1.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/main.js" changelist="fb7a53bf-c4cd-4fb1-878a-b6eaef69583f" time="1380782090779" ignored="false" />
+    <file path="/main.js" changelist="fb7a53bf-c4cd-4fb1-878a-b6eaef69583f" time="1380782623248" ignored="false" />
     <file path="/index.html" changelist="fb7a53bf-c4cd-4fb1-878a-b6eaef69583f" time="1380781402745" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/goal1_duel1/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="0" selection-start="2779" selection-end="2779" vertical-scroll-proportion="1.1714286">
+            <state line="101" column="26" selection-start="2857" selection-end="2857" vertical-scroll-proportion="0.9142857">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -261,7 +261,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/goal1_duel1/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="0" selection-start="2779" selection-end="2779" vertical-scroll-proportion="1.1714286">
+        <state line="101" column="26" selection-start="2857" selection-end="2857" vertical-scroll-proportion="0.9142857">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

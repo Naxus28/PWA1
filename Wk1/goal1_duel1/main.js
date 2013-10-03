@@ -71,7 +71,7 @@ function fight(){
        alert(playerOneName + ":" + playerOneHealth+ "ROUND " + i + " "+ playerTwoName + ":" + playerTwoHealth);
 
 
-
+        var results = winnerCheck();
 
             //alert(playerOneName+":"+ playerOneHealth-finalDamageOne +"ROUND " + i + playerTwoName +":" + playerTwoHealth-finalDamageTwo);
 
@@ -86,14 +86,17 @@ function fight(){
 
 function winnerCheck(){
 
-    if(playerOneHealth==0){
-        alert(playerTwoName +" wins!");
+
+    var result = "nowinner";
+
+    if(playerOneHealth<10){
+        result(playerTwoName +" wins!");
     }
-    else if(playerTwoHealth==0){
-        alert(playerOneName +" wins!");
+    else if(playerTwoHealth<10){
+        result(playerOneName +" wins!");
     }
-    else if(playerOneHealth==0 && playerTwoHealth==0){
-        alert(playerOneName + " and " + playerTwoName + "tied");
+    else if(playerOneHealth<1 && playerTwoHealth<1){
+        result(playerOneName + " and " + playerTwoName + "You both die!");
     }
 
 
