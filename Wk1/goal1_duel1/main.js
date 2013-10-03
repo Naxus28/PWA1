@@ -33,28 +33,27 @@ This function does the conditional logic to determine if there is a winner or no
 //damage should be something in between maximum and half of maximum. this means it is a random between half random and maximum random
 
 
-//alert(playerOneName+":"+ playerOneHealth- +"**START**"+ playerTwoName +":" + playerTwoHealth);
+//variables
+//player one
+var playerOneName= "Zardan";
+var playerOneHealth = 100;
+var playerOneDamage = 50;
 
 
+//variables
+//player two
+var playerTwoName = "Prego";
+var playerTwoHealth = 100;
+var playerTwoDamage = 50;
 
 
-
+alert(playerOneName + ":" + playerOneHealth+ " "+ "**START**" + " "+ playerTwoName + ":" + playerTwoHealth);
 
 
 function fight(){
 
     for(var i=0;i<10;i++) {
 
-        var playerOneName= "Zardan";
-        var playerOneHealth = 100;
-        var playerOneDamage = 50;
-
-
-//variables
-//player two
-        var playerTwoName = "Prego";
-        var playerTwoHealth = 100;
-        var playerTwoDamage = 50;
 
         var minDamageOne = playerOneDamage/2;
         var minDamageTwo = playerTwoDamage/2;
@@ -63,16 +62,39 @@ function fight(){
         var finalDamageTwo = Math.floor((Math.random()*(playerOneDamage-minDamageOne)+minDamageTwo));
 
 
-    //alert(playerOneName+":"+ playerOneHealth-finalDamageOne +"ROUND " + i + playerTwoName +":" + playerTwoHealth-finalDamageTwo);
+        playerOneHealth-=finalDamageOne;
+        playerTwoHealth-=finalDamageTwo;
+
+        //console.log(playerOneHealth);
+        //console.log(playerTwoHealth);
+
+       alert(playerOneName + ":" + playerOneHealth+ "ROUND " + i + " "+ playerTwoName + ":" + playerTwoHealth);
 
 
-          //console.log(finalDamageOne + "one");
-          //console.log(finalDamageTwo + "two");
+
+
+            //alert(playerOneName+":"+ playerOneHealth-finalDamageOne +"ROUND " + i + playerTwoName +":" + playerTwoHealth-finalDamageTwo);
+
+
+//          console.log(finalDamageOne + "one");
+//          console.log(finalDamageTwo + "two");
+
+    }
 }
 
 
 
-//function winnerCheck(){
+function winnerCheck(){
+
+    if(playerOneHealth==0){
+        alert(playerTwoName +" wins!");
+    }
+    else if(playerTwoHealth==0){
+        alert(playerOneName +" wins!");
+    }
+    else if(playerOneHealth==0 && playerTwoHealth==0){
+        alert(playerOneName + " and " + playerTwoName + "tied");
+    }
 
 
 
