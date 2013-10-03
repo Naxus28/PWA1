@@ -33,6 +33,7 @@ This function does the conditional logic to determine if there is a winner or no
 //damage should be something in between maximum and half of maximum. this means it is a random between half random and maximum random
 
 
+(function(){
 //variables
 //player one
 var playerOneName= "Zardan";
@@ -105,5 +106,5 @@ function winnerCheck(){
    return result
 
 }
-
-fight();
+    fight();
+})();
