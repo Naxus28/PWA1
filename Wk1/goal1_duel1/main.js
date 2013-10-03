@@ -68,10 +68,12 @@ function fight(){
         //console.log(playerOneHealth);
         //console.log(playerTwoHealth);
 
-       alert(playerOneName + ":" + playerOneHealth+ "ROUND " + i + " "+ playerTwoName + ":" + playerTwoHealth);
+       console.log(playerOneName + ":" + playerOneHealth+ " " + "ROUND " + i + " "+ playerTwoName + ":" + playerTwoHealth);
 
 
         var results = winnerCheck();
+
+             console.log(results);
 
             //alert(playerOneName+":"+ playerOneHealth-finalDamageOne +"ROUND " + i + playerTwoName +":" + playerTwoHealth-finalDamageTwo);
 
@@ -86,20 +88,21 @@ function fight(){
 
 function winnerCheck(){
 
+    console.log("in winnerCheck");
 
     var result = "nowinner";
 
-    if(playerOneHealth<10){
-        result(playerTwoName +" wins!");
+    if(playerOneHealth<1){
+        result=playerTwoName +" wins!";
     }
-    else if(playerTwoHealth<10){
-        result(playerOneName +" wins!");
+    else if(playerTwoHealth<1){
+        result=playerOneName +" wins!";
     }
     else if(playerOneHealth<1 && playerTwoHealth<1){
-        result(playerOneName + " and " + playerTwoName + "You both die!");
+        result=playerOneName + " and " + playerTwoName + "You both die!";
     }
 
-
+   return result
 
 
 
