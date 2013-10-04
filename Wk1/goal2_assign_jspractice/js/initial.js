@@ -15,9 +15,9 @@ function avgNumbers(array){
      for(var i=0; i<array.length; i++) {
 
 
-
        sumArray+=array[i];
 
+         sumArray = sumArray +array[i];
 
 }
 
@@ -28,8 +28,8 @@ function avgNumbers(array){
 console.log('avg number = ', avgNumbers([1,2,3,4,5,6,7]));
 
 
-//THE CODE BELOW IS A LITTLE TEST TO SEE IF I KNOW HOW TO CALL THE FUNCTION ABOVE - IT CALCULATES THE SUM OF THE
-// AVERAGE OF THE NUMBERS INPUT INTO THE PARAMETERS AND AVERAGE RESULTING FROM THE FUNCTION WRITTEN ABOVE
+//THE CODE BELOW IS A LITTLE TEST TO SEE IF I KNOW HOW TO CALL THE FUNCTION ABOVE - IT TAKES TWO PARAMETERS AND
+// CALCULATES THE SUM OF THE AVERAGE OF THESE PARAMETERS AND THE RESULT THE FUNCTION ABOVE (THE VALUE OF THE PARAMETERS WILL CHANGE)
 
 function sumAvgNumbers(a,b){
 
@@ -48,3 +48,18 @@ function resultOfFunctions(a,functionOne,functionTwo){
 }
 
 console.log("The value resulting from the multiplication of the three functions is "+ resultOfFunctions(5,avgNumbers([5,5,5,5,5]),sumAvgNumbers(5,5)));
+
+//
+
+//create a function named 'fullName'
+//    - accept 2 parameters into the function that are strings (firstname and lastname)
+//- return the name after it has been concatenated
+//- console.log the answer outside of the function
+
+function fullName(firstname,lastname){
+
+    return   firstname +" "+ lastname
+}
+
+console.log(fullName("Gabriel,"Ferraz"));
+
