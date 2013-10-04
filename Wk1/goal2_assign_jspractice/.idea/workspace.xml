@@ -4,7 +4,7 @@
     <list default="true" id="5b9d069f-c81b-4ac0-a06e-99559b510ff1" name="Default" comment="" />
     <ignored path="goal2_assign_jspractice.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/initial.js" changelist="5b9d069f-c81b-4ac0-a06e-99559b510ff1" time="1380909007329" ignored="false" />
+    <file path="/initial.js" changelist="5b9d069f-c81b-4ac0-a06e-99559b510ff1" time="1380911686121" ignored="false" />
     <file path="/index.html" changelist="5b9d069f-c81b-4ac0-a06e-99559b510ff1" time="1380897623551" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="initial.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/initial.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="0" selection-start="5078" selection-end="5096" vertical-scroll-proportion="0.74285716">
+            <state line="147" column="0" selection-start="6143" selection-end="6164" vertical-scroll-proportion="0.6571429">
               <folding />
             </state>
           </provider>
@@ -37,7 +37,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../../goal2_assign_JSpractice/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="9" selection-start="936" selection-end="1167" vertical-scroll-proportion="0.0">
+            <state line="28" column="9" selection-start="1177" selection-end="1400" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -266,14 +266,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../../goal2_assign_JSpractice/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="936" selection-end="1167" vertical-scroll-proportion="0.0">
+        <state line="28" column="9" selection-start="1177" selection-end="1400" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/initial.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="0" selection-start="5078" selection-end="5096" vertical-scroll-proportion="0.74285716">
+        <state line="147" column="0" selection-start="6143" selection-end="6164" vertical-scroll-proportion="0.6571429">
           <folding />
         </state>
       </provider>

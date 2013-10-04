@@ -132,3 +132,24 @@ function charCount(stringOfText){
 console.log(charCount("This is a sentence with a whole bunch of characters"));
 
 
+
+//5.create a function named 'vowelsInWord'
+//    - accept 1 parameter into the function that is a one word string
+//- return the number of vowels in the word
+//- console.log the answer outside of the function
+
+// EXPLANATION: THE .MATCH FUNCTION RETURNS WHATEVER PART OF A STRING MATCHES THE VALUES IN THE PARAMETERS. THE
+//TYPE OF PARAMETER PASSED HERE IS REGEX. IT HAS A SPECIAL SYNTAX (SEE BELOW).
+//IF WE WANT MORE THAN ONE PARAMETER (IN THIS CASE ALL VOWELS), WE NEED TO INCLUDE THEM IN THE BRACKET.
+//THE SYNTAX REQUIRES THAT WE USE A BACKSLASH, THEN THE PARAMETERS, THEN ANOTHER BACKSLASH, THEN THE LETTER g.
+//IF WE WANT TO RETURN ALL INSTANCES OF THE VALUE WE PASSED (LIKE CAPITAL UPPER AND LOWER CASE), WE NEED
+//TO USE gi INSTEAD OF g. This is called a case-insensitive match.
+
+function vowelsInWord (numberOfVowels){
+
+
+        return  numberOfVowels.match(/[aeiou]/g).length;
+
+}
+
+console.log(vowelsInWord("Gabriel"));
