@@ -96,6 +96,29 @@ console.log("I am writing a sentence that has " + wordCount("I am writing a sent
 //- return length of the array of string characters
 //- console.log the answer outside of the function
 
+//EXPLANATION:   stringOfText.split(" ").length-1 WILL RETURN THE NUMBER OF SPACES.
+// THE .SPLIT METHOD WILL SPLIT THE STRING INTO AN ARRAY -- SPLITTING THE STRING
+// EVERY TIME A SPACE APPEARS. BASICALLY IT CREATES A NEW ELEMENT
+// AFTER EVERY SPACE. THE .LENGTH PROPERTY WILL GIVE THE LENGTH OF THE ARRAY. BECAUSE THIS IS A STRING OF
+// WORDS AND SPACES, SPLITTING THE STRING USING THE SPACE AS "SEPARATOR" WILL CREATE AN ARRAY OF WORDS
+// (SPACES SEPARATE WORDS FROM ONE ANOTHER). NOW THAT WE HAVE THE NUMBER OF WORDS, IT IS EASY TO FIND THE
+//NUMBER OF SPACES. BECAUSE THE NUMBER OF SPACES IS ALWAYS ONE LESS THAN THE NUMBER OF WORDS, THE FORMULA IS
+// NUMBER OF SPACES= NUMBER OF WORDS - 1; TRANSLATING IT INTO CODE, WE HAVE stringOfText.split(" ").length-1
+
+// NOW WE HAVE THE NUMBER OF SPACES, WHICH ARE NOT CHARACTERS. TO FIND THE NUMBER OF CHARACTERS (LETTERS) OF THE STRING
+//WE NEED TO KNOW THE TOTAL NUMBER OF CHARACTERS (WHICH INCLUDES SPACES) AND SUBTRACT THE NUMBER OF SPACES.
+// SO THE LOGIC IS: NUMBER OF LETTERS = TOTAL NUMBER OF CHARACTERS - NUMBER OF SPACES.
+
+//THE CODE TO FIND THE TOTAL NUMBER OF CHARACTERS IS stringOfText.split("").length.
+// When the parameter of the .splice method is an empty string(as above), each character of string will be one single
+// element of the array. This means that each letter and each space will count as one character.
+// After using the .split("") we will have all characters distributed in an array.
+// Now we need to count how many elements we have, which includes letters and space. We use the .length
+//property to count the elements of the array.
+// Then we subtract the spaces (which we have previously found) from the total of characters (that we found using . length). The
+//result is the number of characters (letters) in the string.
+
+//TRANSLATING THAT INTO CODE LANGUAGE WE HAVE: stringOfText.split("").length - (stringOfText.split(" ").length -1)
 
 function charCount(stringOfText){
 
@@ -107,3 +130,5 @@ function charCount(stringOfText){
 
 }
 console.log(charCount("This is a sentence with a whole bunch of characters"));
+
+
