@@ -95,3 +95,18 @@ console.log("I am writing a sentence that has " + wordCount("I am writing a sent
 //- accept 1 parameter into the function that is a long string of text
 //- return length of the array of string characters
 //- console.log the answer outside of the function
+
+//function charCount(stringOfText){
+
+//var stringOfText =  "This is a sentence with a whole bunch of characters";
+
+var numberOfSpaces =  stringOfText.split(" ").length -1;
+
+    console.log(numberOfSpaces);
+
+    var characterNumber = stringOfText.split("").length - numberOfSpaces;
+
+    console.log(characterNumber);
+
+//}
+//console.log(charCount("This is a sentence with a whole bunch of characters"));
