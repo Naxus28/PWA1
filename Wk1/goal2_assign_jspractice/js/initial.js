@@ -153,3 +153,38 @@ function vowelsInWord (numberOfVowels){
 }
 
 console.log(vowelsInWord("Gabriel"));
+
+
+
+//6. create a function named 'findNum'
+//    - accepts 2 parameters into the function - 1. array of numbers, 2. boolean
+//- if the second parameter being passed is "false" or null then
+//- create an array with all of the odd numbers from
+//the array
+//- else - create an array with all of the even numbers
+//from the array
+//- return the array
+//- console.log the answer outside of the function
+
+function findNum(arrayOfNumbers,boolean){
+
+     //this var will hold the values of the arrays in any given position
+    var arrayNumbers =
+
+
+    //this var will hold the rest of the number of any given position of the array divided by two
+    var resultOfArrayMath =  arrayNumbers %2;
+
+
+    for(var i; i<arrayOfNumbers.length, i++){
+
+                 arrayNumbers= arrayOfNumbers[i];
+
+
+         if(resultOfArrayMath!=0){
+
+        }
+
+    }
+}
+
