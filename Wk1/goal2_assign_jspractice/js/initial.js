@@ -27,3 +27,24 @@ function avgNumbers(array){
 
 console.log('avg number = ', avgNumbers([1,2,3,4,5,6,7]));
 
+
+//THE CODE BELOW IS A LITTLE TEST TO SEE IF I KNOW HOW TO CALL THE FUNCTION ABOVE - IT CALCULATES THE SUM OF THE
+// AVERAGE OF THE NUMBERS INPUT INTO THE PARAMETERS AND AVERAGE RESULTING FROM THE FUNCTION WRITTEN ABOVE
+
+function sumAvgNumbers(a,b){
+
+    return (a+b) *.5 +  avgNumbers([5,5,5,5,5]);
+}
+
+console.log("The sum of the two averages is "+ sumAvgNumbers(5,5));
+
+
+//THIS IS A THIRD FUNCTION CALLING THE FUNCTION ABOVE - IT IS GOING TO MULTIPLY THE RESULT OF THE ABOVE FUNCTIONS BY
+//WHATEVER NUMBER IS INPUT
+
+function resultOfFunctions(a,functionOne,functionTwo){
+
+    return   a*functionOne*functionTwo;
+}
+
+console.log("The value resulting from the multiplication of the three functions is "+ resultOfFunctions(5,avgNumbers([5,5,5,5,5]),sumAvgNumbers(5,5)));
