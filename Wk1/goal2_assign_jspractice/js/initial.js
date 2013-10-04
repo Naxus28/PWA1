@@ -70,6 +70,16 @@ console.log(fullName("Gabriel","Ferraz"));
 //- console.log the answer outside of the function
 
 
+//EXPLANATION OF WHAT I DID BELOW:
+// THE STRING METHOD .SPLIT WILL  RETURN AN ARRAY OF THE ELEMENTS OF THE STRING. IT CAN TAKE TWO OPTIONAL PARAMETERS
+// THE FIRST PARAMETER (WHICH I PASSED BELOW AS " ") WILL SPECIFY WHICH CHARACTER WILL SEPARATE THE ELEMENTS OF THE
+//  RETURNED ARRAY. I.E. IF YOU WANT TO SEPARATE THE STRING INTO NEW ELEMENTS EVERY TIME THE WORD "A" APPEARS, YOU
+//NEED TO PASS "A" AS THE PARAMETER. I WANTED THAT EVERY TIME A SPACE APPEARED, A NEW ELEMENT WAS CREATED IN THE ARRAY.
+// BECAUSE THE STRING IN THIS EXERCISE IS A PHRASE, EVERY SPACE WILL DIVIDE 2 WORDS.
+//THEN I USE THE PROPERTY .LENGTH TO RETURN THE LENGTH OF THE ARRAY CREATED BY THE STRING FUNCTION . SPLIT. THIS
+//SHOULD RETURN THE NUMBER OF ELEMENTS OF THAT ARRAY. IN THIS CASE, IT IS THE NUMBER OF WORDS.
+
+
 function wordCount(sentence){
 
 
@@ -79,3 +89,9 @@ function wordCount(sentence){
 
 console.log("I am writing a sentence that has " + wordCount("I am writing a sentence that has") + " words");
 
+
+
+////4. create a function named 'charCount'
+//- accept 1 parameter into the function that is a long string of text
+//- return length of the array of string characters
+//- console.log the answer outside of the function
