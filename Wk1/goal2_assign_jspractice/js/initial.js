@@ -122,7 +122,7 @@ console.log("I am writing a sentence that has " + wordCount("I am writing a sent
 
 function charCount(stringOfText){
 
-    var numberOfSpaces =  stringOfText.split(" ").length -1;
+    var numberOfSpaces =  stringOfText.split(" ").length-1;
 
     //console.log(numberOfSpaces);
 
@@ -148,7 +148,7 @@ console.log(charCount("This is a sentence with a whole bunch of characters"));
 function vowelsInWord (numberOfVowels){
 
 
-        return  numberOfVowels.match(/[aeiou]/g).length;
+        return  numberOfVowels.match(/[aeiou]/gi).length;
 
 }
 
@@ -166,25 +166,35 @@ console.log(vowelsInWord("Gabriel"));
 //- return the array
 //- console.log the answer outside of the function
 
-function findNum(arrayOfNumbers,boolean){
+function findNum(arrayOfNumbers,booleanOne){
 
      //this var will hold the values of the arrays in any given position
-    var arrayNumbers =
 
 
-    //this var will hold the rest of the number of any given position of the array divided by two
-    var resultOfArrayMath =  arrayNumbers %2;
+    var arrayOdd =[];
+    var arrayEven =[];
 
 
-    for(var i; i<arrayOfNumbers.length, i++){
-
-                 arrayNumbers= arrayOfNumbers[i];
+    for(var i=0; i<arrayOfNumbers.length; i++){
 
 
-         if(resultOfArrayMath!=0){
 
-        }
+           if(arrayOfNumbers[i]%2!==0){
 
+               arrayEven.push(arrayOfNumbers[i]);
+           }   else {
+               arrayOdd.push(arrayOfNumbers[i]);
+           }
     }
+                 if(booleanOne==true){
+                  return arrayOdd
+              } else {
+                     return arrayEven
+                 }
 }
+
+
+
+console.log(findNum([1,2,3,4,5,6,7,8,9,10], false));
+
 
