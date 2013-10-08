@@ -61,7 +61,7 @@ function fight(){
         var minDamageTwo = playerTwoDamage/2;
 
         var finalDamageOne = Math.floor((Math.random()*(playerOneDamage-minDamageOne)+minDamageOne));
-        var finalDamageTwo = Math.floor((Math.random()*(playerOneDamage-minDamageOne)+minDamageTwo));
+        var finalDamageTwo = Math.floor((Math.random()*(playerTwoDamage-minDamageTwo)+minDamageTwo));
 
 
 
