@@ -45,7 +45,7 @@
 (function(){
 //variables
 //player one
-    var playerOne = ["Zardan", 100, 50];
+    var playerOne = ["Zardan", 100, 20];
 
     //var playerOneName= "Zardan";
    // var playerOneHealth = 100;
@@ -55,7 +55,7 @@
 //variables
 //player two
 
-    var playerTwo = ["Prego", 100, 50];
+    var playerTwo = ["Prego", 100, 20];
 
     //var playerTwoName = "Prego";
     //var playerTwoHealth = 100;
