@@ -124,7 +124,10 @@
 
     //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
 
-document.querySelector(".buttonblue")
+
+document.getElementById("kabal").innerHTML = "Zardan";
+document.getElementById("kratos").innerHTML = "Prego";
+
 
 var round=1;
 
@@ -194,11 +197,14 @@ document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFight
 
                 document.getElementById("round").innerHTML = results;
 
+                document.getElementById("scores").innerHTML = "Game Over";
+
                 function disableButton(){
                     document.querySelector(".buttonblue").disabled=true;
                 }
 
                 document.querySelector(".buttonblue").onclick= disableButton();
+
 
             }
 
