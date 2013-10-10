@@ -88,7 +88,7 @@
 
 
 
-(function(){
+//(function(){
 //variables
 //player one
 
@@ -121,8 +121,11 @@
 
     //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
 
-     document.getElementById("a").onClick = (fight());
+     document.querySelector(".buttonblue").onclick = function(){
+         (fight());
+     };
 
+document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**START**" + arrayFighters[1].name + arrayFighters[1].health;
     function fight(){
 
         //for(var i=0;i<10;i++)
@@ -135,11 +138,16 @@
 //            var finalDamageOne = Math.floor((Math.random()*(playerOne[2]-minDamageOne)+minDamageOne));
 //            var finalDamageTwo = Math.floor((Math.random()*(playerTwo[2]-minDamageOne)+minDamageTwo));
 
+        var round=0;
+         document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND + " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
+
+            round++;
+
         var minDamageOne = arrayFighters[0].damage/2;
         var minDamageTwo = arrayFighters[1].damage/2;
 
-        var finalDamageOne = Math.floor((Math.random()*(arrayFighters[0].health-minDamageOne)+minDamageOne));
-        var finalDamageTwo = Math.floor((Math.random()*(arrayFighters[1].health-minDamageOne)+minDamageTwo));
+        var finalDamageOne = Math.floor((Math.random()*(arrayFighters[0].damage-minDamageOne)+minDamageOne));
+        var finalDamageTwo = Math.floor((Math.random()*(arrayFighters[1].damage-minDamageOne)+minDamageTwo));
 
                       console.log(minDamageOne);
                       console.log(minDamageTwo);
@@ -149,6 +157,8 @@
 
         arrayFighters[0].health-=finalDamageOne;
         arrayFighters[1].health-=finalDamageTwo;
+
+
 
             //console.log(playerOneHealth);
             //console.log(playerTwoHealth);
@@ -188,5 +198,5 @@
         return result
 
     }
-    fight();
-})();
+    //fight();
+//})();
