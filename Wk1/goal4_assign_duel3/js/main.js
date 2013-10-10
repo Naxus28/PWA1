@@ -55,6 +55,10 @@
  health
  Example: fighter1 = {name:Spiderman, damage:20, health:100};
  Both fighter objects should be in an array
+ THIS TASK ABOVE IS DONE
+
+
+
  Modify fight() function
  Since this assignment is now using objects, the code in the fight() function must be modified from the previous version of the assignment to accommodate for this. NO loop will be needed!-since clicking on the button is what triggers the next round.
  Replace the alerts with code that access the DOM(HTML) such as getElemetById and/or querySelector
@@ -109,7 +113,8 @@
 
     function fight(){
 
-        for(var i=0;i<10;i++) {
+        //for(var i=0;i<10;i++)
+        // {
 
 
             var minDamageOne = playerOne[2]/2;
@@ -131,11 +136,11 @@
             if(results==="NO WINNER"){
                 alert(playerOne[0] + ":" + playerOne[1]+ " " + "**ROUND " + round + " OVER**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
                 round++
-            }   else  {
-
-                alert(results);
-                break
-            }
+//            }   else  {
+//
+//                alert(results);
+//                break
+//            }
 
         }
     }
