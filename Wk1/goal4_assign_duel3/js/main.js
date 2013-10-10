@@ -61,8 +61,16 @@
 
  Modify fight() function
  Since this assignment is now using objects, the code in the fight() function must be modified from the previous version of the assignment to accommodate for this. NO loop will be needed!-since clicking on the button is what triggers the next round.
+ THIS TASK ABOVE IS DONE
+
+
+
  Replace the alerts with code that access the DOM(HTML) such as getElemetById and/or querySelector
- Use JavaScript's innerHTML property to change the text in the HTML. The following information will be displayed dynamically in the HTML (view the demonstration again to see how this should look):
+ Use JavaScript's innerHTML property to change the text in the HTML.
+
+
+ The following information will be displayed dynamically in the HTML
+ (view the demonstration again to see how this should look):
  Fighter's name and health at the top
  Current round number above the button
  Create a click event on the button
@@ -113,6 +121,7 @@
 
     //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
 
+     document.getElementById("a").onClick = (fight());
 
     function fight(){
 
