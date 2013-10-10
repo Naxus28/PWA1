@@ -74,14 +74,17 @@
  Fighter's name and health at the top
  Current round number above the button
  Create a click event on the button
+
  When the button is clicked, the following should commence:
  advance round
  the modified fight() function is called
- Disable the button when the game is over and make sure the appropriate "game over message" is shown at the top. The message should be one of the following:
+ Disable the button when the game is over and make sure the appropriate "game over message" is shown at the top.
+ The message should be one of the following:
  Fighter 1 wins
  Fighter 2 wins
  Both Fighters Die
- Make sure the actual name of the fighter is shown not fighter1 or fighter2. You can always change the message to something else if you want to be more creative.
+ Make sure the actual name of the fighter is shown not fighter1 or fighter2.
+ You can always change the message to something else if you want to be more creative.
 
 
  */
@@ -110,22 +113,33 @@
     //var playerTwoHealth = 100;
     //var playerTwoDamage = 50;
 
-    var playerOne = {name:"Zardan", health: 100, damage:50};
-    var playerTwo = {name:"Prego", health: 100, damage:50};
+    var playerOne = {name:"Zardan", health: 100, damage:20};
+    var playerTwo = {name:"Prego", health: 100, damage:20};
 
     var arrayFighters = [playerOne,playerTwo];
 
        //console.log (arrayFighters[0].name);
 
-    //var round = 1;
+
 
     //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
 
-     document.querySelector(".buttonblue").onclick = function(){
+document.querySelector(".buttonblue")
+
+var round=1;
+
+
+
+document.querySelector(".buttonblue").onclick = function(){
          (fight());
      };
 
 document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**START**" + arrayFighters[1].name + arrayFighters[1].health;
+
+
+
+
+
     function fight(){
 
         //for(var i=0;i<10;i++)
@@ -138,10 +152,12 @@ document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFight
 //            var finalDamageOne = Math.floor((Math.random()*(playerOne[2]-minDamageOne)+minDamageOne));
 //            var finalDamageTwo = Math.floor((Math.random()*(playerTwo[2]-minDamageOne)+minDamageTwo));
 
-        var round=0;
-         document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND + " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
 
-            round++;
+
+
+
+        //console.log("round"+ round);
+
 
         var minDamageOne = arrayFighters[0].damage/2;
         var minDamageTwo = arrayFighters[1].damage/2;
@@ -158,24 +174,37 @@ document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFight
         arrayFighters[0].health-=finalDamageOne;
         arrayFighters[1].health-=finalDamageTwo;
 
+        document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
 
 
-            //console.log(playerOneHealth);
+        //console.log(playerOneHealth);
             //console.log(playerTwoHealth);
 
             var results = winnerCheck();
 
             if(results==="NO WINNER"){
-//                alert(playerOne[0] + ":" + playerOne[1]+ " " + "**ROUND " + round + " OVER**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
-//                round++
-//            }   else  {
-//
-//                alert(results);
-//                break
-//            }
 
-        }
+
+                round++;
+
+
+            }   else  {
+
+
+
+                document.getElementById("round").innerHTML = results;
+
+                function disableButton(){
+                    document.querySelector(".buttonblue").disabled=true;
+                }
+
+                document.querySelector(".buttonblue").onclick= disableButton();
+
+            }
+
+
     }
+
 
 
 
@@ -185,18 +214,23 @@ document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFight
 
         var result = "NO WINNER";
 
-        if(playerOne[1]<1 && playerTwo[1]<1){
-            result=playerOne[0] + " and " + playerTwo[0] + " both die!";
+        if(arrayFighters[0].health<1 && arrayFighters[1].health<1){
+            result=arrayFighters[0].name + " and " + arrayFighters[1].name + " both die!";
         }
-        else if(playerOne[1]<1){
-            result=playerTwo[0] +" wins!";
+        else if(arrayFighters[0].health<1){
+            result=arrayFighters[1].name +" wins!";
         }
-        else if(playerTwo[1]<1){
-            result=playerOne[0] +" wins!";
+        else if(arrayFighters[1]<1){
+            result=arrayFighters[0].name +" wins!";
         }
 
         return result
 
+
     }
+
+
+
+
     //fight();
 //})();
