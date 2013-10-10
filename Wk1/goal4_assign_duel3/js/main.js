@@ -125,8 +125,13 @@
     //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
 
 
-document.getElementById("kabal").innerHTML = "Zardan";
-document.getElementById("kratos").innerHTML = "Prego";
+
+
+
+//document.getElementById("kabal").style.textAlign="left";
+//document.getElementById("kratos").style.textAlign="right";
+
+
 
 
 var round=1;
@@ -137,13 +142,18 @@ document.querySelector(".buttonblue").onclick = function(){
          (fight());
      };
 
-document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**START**" + arrayFighters[1].name + arrayFighters[1].health;
+//document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**START**" + arrayFighters[1].name + arrayFighters[1].health;
+
+document.getElementById("round").style.textAlign= "center";
+
+document.getElementById("round").innerHTML = "**START**";
+
+document.getElementById("kabal").innerHTML = arrayFighters[0].name +"   " +arrayFighters[0].health;
+document.getElementById("kratos").innerHTML = arrayFighters[1].name +"   " + arrayFighters[1].health;
 
 
 
-
-
-    function fight(){
+function fight(){
 
         //for(var i=0;i<10;i++)
         // {
@@ -168,17 +178,22 @@ document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFight
         var finalDamageOne = Math.floor((Math.random()*(arrayFighters[0].damage-minDamageOne)+minDamageOne));
         var finalDamageTwo = Math.floor((Math.random()*(arrayFighters[1].damage-minDamageOne)+minDamageTwo));
 
-                      console.log(minDamageOne);
-                      console.log(minDamageTwo);
-                      console.log(finalDamageOne);
-                      console.log(finalDamageTwo);
+//                      console.log(minDamageOne);
+//                      console.log(minDamageTwo);
+//                      console.log(finalDamageOne);
+//                      console.log(finalDamageTwo);
 
 
         arrayFighters[0].health-=finalDamageOne;
         arrayFighters[1].health-=finalDamageTwo;
 
-        document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
+        //document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
 
+    document.getElementById("round").innerHTML =   "ROUND " + round;
+
+
+    document.getElementById("kabal").innerHTML = arrayFighters[0].name +"   " +arrayFighters[0].health;
+    document.getElementById("kratos").innerHTML = arrayFighters[1].name +"   " + arrayFighters[1].health;
 
         //console.log(playerOneHealth);
             //console.log(playerTwoHealth);
@@ -197,6 +212,7 @@ document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFight
 
                 document.getElementById("round").innerHTML = results;
 
+                document.getElementById("scores").style.textAlign="center";
                 document.getElementById("scores").innerHTML = "Game Over";
 
                 function disableButton(){
