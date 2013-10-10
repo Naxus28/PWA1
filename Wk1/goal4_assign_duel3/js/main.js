@@ -84,7 +84,7 @@
 //variables
 //player one
 
-    var playerOne = {name:"Zardan", health: 100, damage:50};
+    //var playerOne = {name:"Zardan", health: 100, damage:50};
     //var playerOne = ["Zardan", 100, 50];
 
     //var playerOneName= "Zardan";
@@ -95,20 +95,23 @@
 //variables
 //player two
 
-    var playerTwo = {name:"Prego", health: 100, damage:50};
+    //var playerTwo = {name:"Prego", health: 100, damage:50};
     //var playerTwo = ["Prego", 100, 50];
 
     //var playerTwoName = "Prego";
     //var playerTwoHealth = 100;
     //var playerTwoDamage = 50;
 
+    var playerOne = {name:"Zardan", health: 100, damage:50};
+    var playerTwo = {name:"Prego", health: 100, damage:50};
+
     var arrayFighters = [playerOne,playerTwo];
 
+       //console.log (arrayFighters[0].name);
 
+    //var round = 1;
 
-    var round = 1;
-
-    alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
+    //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
 
 
     function fight(){
@@ -117,16 +120,26 @@
         // {
 
 
-            var minDamageOne = playerOne[2]/2;
-            var minDamageTwo = playerTwo[2]/2;
+//            var minDamageOne = playerOne[2]/2;
+//            var minDamageTwo = playerTwo[2]/2;
+//
+//            var finalDamageOne = Math.floor((Math.random()*(playerOne[2]-minDamageOne)+minDamageOne));
+//            var finalDamageTwo = Math.floor((Math.random()*(playerTwo[2]-minDamageOne)+minDamageTwo));
 
-            var finalDamageOne = Math.floor((Math.random()*(playerOne[2]-minDamageOne)+minDamageOne));
-            var finalDamageTwo = Math.floor((Math.random()*(playerTwo[2]-minDamageOne)+minDamageTwo));
+        var minDamageOne = arrayFighters[0].damage/2;
+        var minDamageTwo = arrayFighters[1].damage/2;
+
+        var finalDamageOne = Math.floor((Math.random()*(arrayFighters[0].health-minDamageOne)+minDamageOne));
+        var finalDamageTwo = Math.floor((Math.random()*(arrayFighters[1].health-minDamageOne)+minDamageTwo));
+
+                      console.log(minDamageOne);
+                      console.log(minDamageTwo);
+                      console.log(finalDamageOne);
+                      console.log(finalDamageTwo);
 
 
-
-            playerOne[1]-=finalDamageOne;
-            playerTwo[1]-=finalDamageTwo;
+        arrayFighters[0].health-=finalDamageOne;
+        arrayFighters[1].health-=finalDamageTwo;
 
             //console.log(playerOneHealth);
             //console.log(playerTwoHealth);
