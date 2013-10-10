@@ -98,6 +98,7 @@
     //var playerTwoHealth = 100;
     //var playerTwoDamage = 50;
 
+    var arrayFighters = [playerOne,playerTwo];
 
 
 
