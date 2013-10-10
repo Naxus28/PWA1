@@ -147,8 +147,8 @@
             var results = winnerCheck();
 
             if(results==="NO WINNER"){
-                alert(playerOne[0] + ":" + playerOne[1]+ " " + "**ROUND " + round + " OVER**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
-                round++
+//                alert(playerOne[0] + ":" + playerOne[1]+ " " + "**ROUND " + round + " OVER**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
+//                round++
 //            }   else  {
 //
 //                alert(results);
