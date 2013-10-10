@@ -79,7 +79,9 @@
 (function(){
 //variables
 //player one
-    var playerOne = ["Zardan", 100, 50];
+
+    var playerOne = {name:"Zardan", health: 100, damage:50};
+    //var playerOne = ["Zardan", 100, 50];
 
     //var playerOneName= "Zardan";
    // var playerOneHealth = 100;
@@ -89,11 +91,15 @@
 //variables
 //player two
 
-    var playerTwo = ["Prego", 100, 50];
+    var playerTwo = {name:"Prego", health: 100, damage:50};
+    //var playerTwo = ["Prego", 100, 50];
 
     //var playerTwoName = "Prego";
     //var playerTwoHealth = 100;
     //var playerTwoDamage = 50;
+
+
+
 
     var round = 1;
 
