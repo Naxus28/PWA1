@@ -92,57 +92,20 @@
 
 
 (function(){
-//variables
-//player one
-
-    //var playerOne = {name:"Zardan", health: 100, damage:50};
-    //var playerOne = ["Zardan", 100, 50];
-
-    //var playerOneName= "Zardan";
-   // var playerOneHealth = 100;
-    //var playerOneDamage = 50;
-
-
-//variables
-//player two
-
-    //var playerTwo = {name:"Prego", health: 100, damage:50};
-    //var playerTwo = ["Prego", 100, 50];
-
-    //var playerTwoName = "Prego";
-    //var playerTwoHealth = 100;
-    //var playerTwoDamage = 50;
 
     var playerOne = {name:"Zardan", health: 100, damage:20};
     var playerTwo = {name:"Prego", health: 100, damage:20};
 
     var arrayFighters = [playerOne,playerTwo];
 
-       //console.log (arrayFighters[0].name);
-
-
-
-    //alert(playerOne[0] + ":" + playerOne[1]+ " "+ "**START**" + " "+ playerTwo[0] + ":" + playerTwo[1]);
-
-
-
-
-
 //document.getElementById("kabal").style.textAlign="left";
 //document.getElementById("kratos").style.textAlign="right";
 
-
-
-
 var round=1;
-
-
 
 document.querySelector(".buttonblue").onclick = function(){
          (fight());
      };
-
-//document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**START**" + arrayFighters[1].name + arrayFighters[1].health;
 
 document.getElementById("round").style.textAlign= "center";
 
@@ -155,48 +118,21 @@ document.getElementById("kratos").innerHTML = arrayFighters[1].name +"   " + arr
 
 function fight(){
 
-        //for(var i=0;i<10;i++)
-        // {
-
-
-//            var minDamageOne = playerOne[2]/2;
-//            var minDamageTwo = playerTwo[2]/2;
-//
-//            var finalDamageOne = Math.floor((Math.random()*(playerOne[2]-minDamageOne)+minDamageOne));
-//            var finalDamageTwo = Math.floor((Math.random()*(playerTwo[2]-minDamageOne)+minDamageTwo));
-
-
-
-
-
-        //console.log("round"+ round);
-
-
         var minDamageOne = arrayFighters[0].damage/2;
         var minDamageTwo = arrayFighters[1].damage/2;
 
         var finalDamageOne = Math.floor((Math.random()*(arrayFighters[0].damage-minDamageOne)+minDamageOne));
         var finalDamageTwo = Math.floor((Math.random()*(arrayFighters[1].damage-minDamageOne)+minDamageTwo));
 
-//                      console.log(minDamageOne);
-//                      console.log(minDamageTwo);
-//                      console.log(finalDamageOne);
-//                      console.log(finalDamageTwo);
-
-
         arrayFighters[0].health-=finalDamageOne;
         arrayFighters[1].health-=finalDamageTwo;
 
-        //document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
 
     document.getElementById("round").innerHTML =   "**ROUND " + round + "**";
 
 
     document.getElementById("kabal").innerHTML = arrayFighters[0].name +"   " +arrayFighters[0].health;
     document.getElementById("kratos").innerHTML = arrayFighters[1].name +"   " + arrayFighters[1].health;
-
-        //console.log(playerOneHealth);
-            //console.log(playerTwoHealth);
 
             var results = winnerCheck();
 
@@ -227,12 +163,7 @@ function fight(){
 
     }
 
-
-
-
     function winnerCheck(){
-
-        //console.log("in winnerCheck");
 
         var result = "NO WINNER";
 
@@ -247,8 +178,6 @@ function fight(){
         }
 
         return result
-
-
     }
 
 
