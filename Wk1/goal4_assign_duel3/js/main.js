@@ -91,7 +91,7 @@
 
 
 
-//(function(){
+(function(){
 //variables
 //player one
 
@@ -189,7 +189,7 @@ function fight(){
 
         //document.getElementById("round").innerHTML = arrayFighters[0].name  + arrayFighters[0].health+  "**ROUND " + round + " **" + arrayFighters[1].name + arrayFighters[1].health;
 
-    document.getElementById("round").innerHTML =   "ROUND " + round;
+    document.getElementById("round").innerHTML =   "**ROUND " + round + "**";
 
 
     document.getElementById("kabal").innerHTML = arrayFighters[0].name +"   " +arrayFighters[0].health;
@@ -254,5 +254,5 @@ function fight(){
 
 
 
-    //fight();
-//})();
+    fight();
+})();
