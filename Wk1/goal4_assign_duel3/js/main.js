@@ -68,14 +68,6 @@ ASSIGNMENT - GAME 3
 
 document.querySelector(".buttonblue").onclick = function(){
          (fight());
-    if(results==="NO WINNER"){
-
-
-        document.querySelector(".buttonblue").disabled=true;
-
-
-    }
-
      };
 
 document.getElementById("round").style.textAlign= "center";
@@ -123,11 +115,11 @@ function fight(){
                 document.getElementById("scores").style.textAlign="center";
                 document.getElementById("scores").innerHTML = "Game Over";
 
-//                function disableButton(){
-//                    document.querySelector(".buttonblue").disabled=true;
+                //function disableButton(){
+                    document.querySelector(".buttonblue").disabled=true;
 //                }
 //
-//                document.querySelector(".buttonblue").onclick= disableButton();
+//                 disableButton();
 
                 console.log(arrayFighters[0].health);
 
