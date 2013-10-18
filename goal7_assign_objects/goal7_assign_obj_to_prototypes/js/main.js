@@ -15,8 +15,12 @@
  When instantiating the Person object, make sure a randomly chosen name (using the Math.random() method) from the names
  array is sent to the constructor of the person along with what row number in the HTML the information will be displayed in.
  Ex: var person = new Person(names[someName],someRow);
+
  Create a function called "populateHTML" which outputs the person's name and person's job, in the DOM.
+
+
  The code must be built to NOT allow duplicate names to appear.
+
  Set up an Interval that calls a runUpdate() function 30 times a second. Example: "setInterval(runUpdate, 1000 / 30);"
  Once all the Person instances are in the people array then loop through each person and run the prototype update() function. This loop should be done in the runUpdate() function that is called from the setInterval (in the example directly above). For example:
  function runUpdate(){
@@ -29,66 +33,83 @@
 var names = ["Bob","Paul","Carl","John","George"];
 
 var people = [];
+//console.log(people);
 
 var columnOne = document.querySelector("#r3c1");
+var columnTwo = document.querySelector("#r3c2");
+var columnThree = document.querySelector("#r3c3");
 
 for(var i=0; i<3 ; i++) {
 
-    var newPerson = new Person();
-    people.push(newPerson(names[Math.floor(Math.random()*names.length).name]),);
-}
+    var randomNameIndex = Math.floor(Math.random()*names.length);
+    var randomName = names[randomNameIndex];
+    var row = i;
+   // console.log("this is the name in the randomName var " + randomName);
+
+   // if the random name generated equals the string name in the array people, slice it out of the
+    //array name
+    console.log(                                             );
+
+    console.log("=========This is iteration " + i + " of the for loop =============")
+
+    var j =0;
+
+    names.forEach(function(e){
+
+       var namePositionInTheArray = names.indexOf(randomName);
+
+        console.log(                                             );
+
+        console.log("=========This is iteration " + j + " of the for each loop =============");
+
+        console.log("This is the random name generated with Math.random: "+ randomName);
+
+        console.log("this is the index position of the random name generated with Math.random in the array 'names': "+ namePositionInTheArray);
+
+        console.log("This is the element being matched with the random name in the array 'names': "+ e);
+
+        console.log("If "+ randomName + " = " + e + " the name should be spliced out below");
+
+        if(e==randomName) {
+
+        var nameSpliced = names.splice(namePositionInTheArray,1);
+
+        console.log("This is the name spliced: "+ nameSpliced);
+        }
+
+        else{
+            console.log("The names don't match");
+        }
+
+        j++;
 
 
-    console.log(names);
-
-var personOne = people[0]
+    });
 
 
-
-
-
-
-
- /*
-
- 2) The Person.js file will contain the following items:
- Add the Person object to the global window object - because main.js needs it. Example: "window.Person=Person;"
- Two variables, "jobs" and "actions" which should be directly on the Person object (static variables).
- The jobs variable is an array of 4 or more jobs. The actions variable is also an array of some actions a person could do.
- ex: Person.jobs = ["teacher","farmer","student","pilot"];
- ex: Person.actions = ["sleeping","eating","working"];
- The Person constructor should also have four properties:
- name: The name of the person. This property is set in this constructor for the Person.
- action: This property is set in this constructor for the Person.
-    This property states what the person is actively doing and it is one of the values in the actions array.
-    You will randomly select one item from the Person.action array for this property (use the Math.random() method).
- job: This property is set in this constructor for the Person and is one of the values in the jobs array.
-    You will randomly select one item from the Person.jobs array for this property(use the Math.random() method).
- row: Like the name property, this is set in this constructor.
-
-
- Main.js writes out the information for the person's name and job.
- You will now need to display the initial action of the person in 3rd column.
- The Person object must have an update() function added to its prototype.
- The purpose of this update() function, which is called from the main.js file,
-  is to change the actions of the person every so often,
-   this is based on the interval instructions given above
-   (approx. once every 5 seconds or so) and display that change in the HTML in column 3.
-
- */
-
-window.Person=Person;
-
-Person.jobs =["teacher","farmer","student","pilot"];
-Person.actions = ["sleeping","eating","working"];
-
-function Person() {
-    this.name = "";
-    this.action = Person.action[Math.floor(Math.random()*Person.actions.length)];
-    this.job = Person.job[Math.floor(Math.random()*Person.job.length)];
-    this.row = 0;
+    var newPerson = new Person(randomName, row);
+    people.push(newPerson);
 }
 
 
 
-var person = new Person();
+//Create a function called "populateHTML" which outputs the person's name and person's job, in the DOM.
+//The code must be built to NOT allow duplicate names to appear.
+
+
+function  populateHTML(){
+//    var namePositionInTheArray =0;
+//    var splicedNames = "";
+    for(var i = 0; i < people.length; i++){
+        document.querySelector("#r" + parseInt(i + 1) + "c1").innerHTML = people[i].name;
+        //console.log("this is the name in the array people "+ people[i].name);
+        document.querySelector("#r" + parseInt(i + 1) + "c2").innerHTML = people[i].job;
+        document.querySelector("#r" + parseInt(i + 1) + "c3").innerHTML = people[i].action;
+
+    }
+
+
+}
+
+populateHTML();
+
