@@ -29,67 +29,67 @@
  });
  */
 
+(function(){
+    var names = ["Bob","Paul","Carl","John","George"];
 
-var names = ["Bob","Paul","Carl","John","George"];
-
-var people = [];
+    var people = [];
 //console.log(people);
 
-var columnOne = document.querySelector("#r3c1");
-var columnTwo = document.querySelector("#r3c2");
-var columnThree = document.querySelector("#r3c3");
+    var columnOne = document.querySelector("#r3c1");
+    var columnTwo = document.querySelector("#r3c2");
+    var columnThree = document.querySelector("#r3c3");
 
-for(var i=0; i<3 ; i++) {
+    for(var i=0; i<3 ; i++) {
 
-    var randomNameIndex = Math.floor(Math.random()*names.length);
-    var randomName = names[randomNameIndex];
-    var row = i;
-   // console.log("this is the name in the randomName var " + randomName);
+        var randomNameIndex = Math.floor(Math.random()*names.length);
+        var randomName = names[randomNameIndex];
+        var row = i;
+        // console.log("this is the name in the randomName var " + randomName);
 
-   // if the random name generated equals the string name in the array people, slice it out of the
-    //array name
-    console.log(                                             );
-
-    console.log("=========This is iteration " + i + " of the for loop =============")
-
-    var j =0;
-
-    names.forEach(function(e){
-
-       var namePositionInTheArray = names.indexOf(randomName);
-
+        // if the random name generated equals the string name in the array people, slice it out of the
+        //array name
         console.log(                                             );
 
-        console.log("=========This is iteration " + j + " of the for each loop =============");
+        console.log("=========This is iteration " + i + " of the for loop =============")
 
-        console.log("This is the random name generated with Math.random: "+ randomName);
+        var j =0;
 
-        console.log("this is the index position of the random name generated with Math.random in the array 'names': "+ namePositionInTheArray);
+        names.forEach(function(e){
 
-        console.log("This is the element being matched with the random name in the array 'names': "+ e);
+            var namePositionInTheArray = names.indexOf(randomName);
 
-        console.log("If "+ randomName + " = " + e + " the name should be spliced out below");
+            console.log(                                             );
 
-        if(e==randomName) {
+            console.log("=========This is iteration " + j + " of the for each loop =============");
 
-        var nameSpliced = names.splice(namePositionInTheArray,1);
+            console.log("This is the random name generated with Math.random: "+ randomName);
 
-        console.log("This is the name spliced: "+ nameSpliced);
-        }
+            console.log("this is the index position of the random name generated with Math.random in the array 'names': "+ namePositionInTheArray);
 
-        else{
-            console.log("The names don't match");
-        }
+            console.log("This is the element being matched with the random name in the array 'names': "+ e);
 
-        j++;
+            console.log("If "+ randomName + " = " + e + " the name should be spliced out below");
+
+            if(e==randomName) {
+
+                var nameSpliced = names.splice(namePositionInTheArray,1);
+
+                console.log("This is the name spliced: "+ nameSpliced);
+            }
+
+            else{
+                console.log("The names don't match");
+            }
+
+            j++;
 
 
-    });
+        });
 
 
-    var newPerson = new Person(randomName, row);
-    people.push(newPerson);
-}
+        var newPerson = new Person(randomName, row);
+        people.push(newPerson);
+    }
 
 
 
@@ -97,19 +97,22 @@ for(var i=0; i<3 ; i++) {
 //The code must be built to NOT allow duplicate names to appear.
 
 
-function  populateHTML(){
+    function  populateHTML(){
 //    var namePositionInTheArray =0;
 //    var splicedNames = "";
-    for(var i = 0; i < people.length; i++){
-        document.querySelector("#r" + parseInt(i + 1) + "c1").innerHTML = people[i].name;
-        //console.log("this is the name in the array people "+ people[i].name);
-        document.querySelector("#r" + parseInt(i + 1) + "c2").innerHTML = people[i].job;
-        document.querySelector("#r" + parseInt(i + 1) + "c3").innerHTML = people[i].action;
+        for(var i = 0; i < people.length; i++){
+            document.querySelector("#r" + parseInt(i + 1) + "c1").innerHTML = people[i].name;
+            //console.log("this is the name in the array people "+ people[i].name);
+            document.querySelector("#r" + parseInt(i + 1) + "c2").innerHTML = people[i].job;
+            document.querySelector("#r" + parseInt(i + 1) + "c3").innerHTML = people[i].action;
+
+        }
+
 
     }
 
+    populateHTML();
 
-}
 
-populateHTML();
+});
 
