@@ -26,6 +26,7 @@
  Main.js writes out the information for the person's name and job.
  You will now need to display the initial action of the person in 3rd column.
  The Person object must have an update() function added to its prototype.
+
  The purpose of this update() function, which is called from the main.js file,
  is to change the actions of the person every so often,
  this is based on the interval instructions given above
@@ -44,3 +45,11 @@ function Person(name, row) {
     this.action = Person.actions[Math.floor(Math.random()*Person.actions.length)];
     this.job = Person.jobs[Math.floor(Math.random()*Person.jobs.length)];
 }
+
+Person.prototype.update = function(){
+       // this function will change the actions in actions column
+    this.action = Person.actions[Math.floor(Math.random()*Person.actions.length)];
+
+
+};
+

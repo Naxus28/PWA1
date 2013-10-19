@@ -22,7 +22,8 @@
  The code must be built to NOT allow duplicate names to appear.
 
  Set up an Interval that calls a runUpdate() function 30 times a second. Example: "setInterval(runUpdate, 1000 / 30);"
- Once all the Person instances are in the people array then loop through each person and run the prototype update() function. This loop should be done in the runUpdate() function that is called from the setInterval (in the example directly above). For example:
+ Once all the Person instances are in the people array then loop through each person and run the prototype update() function.
+ This loop should be done in the runUpdate() function that is called from the setInterval (in the example directly above). For example:
  function runUpdate(){
  people.forEach(function(element){
  element.update();
@@ -30,10 +31,17 @@
  */
 
 (function(){
+
+    console.log("in the function");
+
+    var interval =  setInterval(runUpdate, 1000 / 30);
+
+    //console.log("This is the variation interval"+ interval);
+
     var names = ["Bob","Paul","Carl","John","George"];
 
     var people = [];
-//console.log(people);
+    console.log(people);
 
     var columnOne = document.querySelector("#r3c1");
     var columnTwo = document.querySelector("#r3c2");
@@ -43,53 +51,65 @@
 
         var randomNameIndex = Math.floor(Math.random()*names.length);
         var randomName = names[randomNameIndex];
-        var row = i;
+        var row = i+1;
+
+        var newPerson = new Person(randomName, row);
+        console.log(newPerson);
+        console.log("this is the index position in the array 'names' " + randomNameIndex);
+        people.push(newPerson);
+
+        names.splice(randomNameIndex,1);
+    }
         // console.log("this is the name in the randomName var " + randomName);
 
         // if the random name generated equals the string name in the array people, slice it out of the
         //array name
-        console.log(                                             );
-
-        console.log("=========This is iteration " + i + " of the for loop =============")
-
-        var j =0;
-
-        names.forEach(function(e){
-
-            var namePositionInTheArray = names.indexOf(randomName);
-
-            console.log(                                             );
-
-            console.log("=========This is iteration " + j + " of the for each loop =============");
-
-            console.log("This is the random name generated with Math.random: "+ randomName);
-
-            console.log("this is the index position of the random name generated with Math.random in the array 'names': "+ namePositionInTheArray);
-
-            console.log("This is the element being matched with the random name in the array 'names': "+ e);
-
-            console.log("If "+ randomName + " = " + e + " the name should be spliced out below");
-
-            if(e==randomName) {
-
-                var nameSpliced = names.splice(namePositionInTheArray,1);
-
-                console.log("This is the name spliced: "+ nameSpliced);
-            }
-
-            else{
-                console.log("The names don't match");
-            }
-
-            j++;
 
 
-        });
 
+//        console.log(                                             );
+//
+//        console.log("=========This is iteration " + i + " of the for loop =============")
+//
+//        var j =0;
+//
+//        names.forEach(function(e){
+//
+//            var namePositionInTheArray = names.indexOf(randomName);
+//
+//            console.log(                                             );
+//
+//            console.log("=========This is iteration " + j + " of the for each loop =============");
+//
+//            console.log("This is the random name generated with Math.random: "+ randomName);
+//
+//            console.log("this is the index position of the random name generated with Math.random in the array 'names': "+ namePositionInTheArray);
+//
+//            console.log("This is the element being matched with the random name in the array 'names': "+ e);
+//
+//            console.log("If "+ randomName + " = " + e + " the name should be spliced out below");
+//
+//            if(e==randomName) {
+//
+//                var nameSpliced = names.splice(namePositionInTheArray,1);
+//
+//                console.log("This is the name spliced: "+ nameSpliced);
+//            }
+//
+//            else{
+//                console.log("The names don't match");
+//            }
+//
+//            j++;
+//
+//
+//        });
+//
+//
+////        var newPerson = new Person(randomName, row);
+////        people.push(newPerson);
+//    }
 
-        var newPerson = new Person(randomName, row);
-        people.push(newPerson);
-    }
 
 
 
@@ -113,6 +133,13 @@
 
     populateHTML();
 
+    function runUpdate(){
+        people.forEach(function(element){
+            element.update();
+        });
+        populateHTML();
+    }
+    interval();
 
-});
+})();
 

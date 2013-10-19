@@ -30,4 +30,10 @@ utils.convertTemp = function(t,u){
     }        else {
         temp = "formula to convert to firenheigth"
     }
-}
+};
+
+utils.areaRectangle = function(b,h){
+
+    return b*h
+
+};

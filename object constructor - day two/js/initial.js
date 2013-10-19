@@ -8,6 +8,7 @@
 
 (function(){
     console.log("in the function");
+    console.log("this is the utils "+utils.areaRectangle(5,4));
 
     var studentsArray  = ["Gabriel","Diogo", "Kareem","Julian","Antonio","James","Eddie","Scott"];
 
@@ -53,3 +54,6 @@ console.log("this is a new student "+ newStudent);
     }
 
 })();
+
+
+console.log("this is the utils "+utils.areaRectangle(5,4));
