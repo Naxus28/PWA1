@@ -25,11 +25,21 @@
     }
 
     Car.prototype.move = function(){
-
         console.log(this.name + "'s car is moving");
-    };
 
-    var cars = [];
+    };                                       // this is the prototype .move, which is a function.
+                                             // After it is created, this prototype can be added to other objects
+                                             // by simply using the command .move();
+                                             // once the prototype is added, it calls for the function that was created
+                                             // in the original prototype. The function will access the information
+                                             // of the new object to which the prototype was added and return
+                                             // whatever value it was programmed to return. In this case, the
+                                             // function is logging the property . name of the object constructor "Car"
+    var cars = [];                           // When added to another object that is created from this constructor
+                                             // i.e. myCar = new Car(n,m,c), the prototype .move will return the name
+                                             //that is passed into the new Car (myCar).
+                                             //  myCar = new Car("Gabriel","Toyota", "silver");
+                                             //myCar.move(); will equal Gabriel
 
     var myCar = new Car("Gabriel","Toyota", "silver");//we are instantiating the function Car with a new name and assigning it to a variable
     var yourCar = new Car("Joe","Ford", "black");
