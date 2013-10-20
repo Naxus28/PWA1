@@ -62,7 +62,9 @@ INSTRUCTIONS:
     var allLinks = document.querySelectorAll("a");
     console.log("this is the array of links "+ allLinks.length);
 
-    MyLibrary(allLinks);
+    console.log("this is the call to MyLibrary"+  new MyLibrary(allLinks));
+
+    MyLibrary.prototype.init(allLinks);
 
 
 

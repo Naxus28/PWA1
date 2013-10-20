@@ -39,7 +39,10 @@ MyLibrary.prototype = {
 
 // e. The "init" function will accept a parameter from the Constructor.
 
-    init: function(e){},        //the prototype adds the function .init to the constructor
+    init: function(e){
+        //I have no idea what the init function does
+
+    },        //the prototype adds the function .init to the constructor
 
 
 // Set the Prototypes ".elements" property to equal the parameter being passed into the "init" function.
@@ -62,9 +65,9 @@ MyLibrary.prototype = {
 
 };
 
-MyLibrary.prototype.elements.push(e);
+//MyLibrary.prototype.elements =
 
-console.log("this is the array elements of the prototype "+ MyLibrary.prototype.elements);
+//console.log("this is the array elements of the prototype "+ MyLibrary.prototype.elements);
 
  // end prototype
 
