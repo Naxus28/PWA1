@@ -18,10 +18,12 @@
 
 //this is stp c
 var MyLibrary = function(e){
-
+     var arrayOfLinks =[];   //stores the links from the node
     for(var i = 0; i < e.length; i++){
+        arrayOfLinks.push(e[i]);
         e[i].onclick = function(){
             console.log(this.href);
+
 //            return false;          //this will return break out of the loop
         }
     }
@@ -40,6 +42,9 @@ MyLibrary.prototype = {
 // e. The "init" function will accept a parameter from the Constructor.
 
     init: function(e){
+
+        elements.[]
+
         //I have no idea what the init function does
 
     },        //the prototype adds the function .init to the constructor
@@ -48,7 +53,7 @@ MyLibrary.prototype = {
 // Set the Prototypes ".elements" property to equal the parameter being passed into the "init" function.
 
                                 // function init creates an array of elements
-    elements: [],        //this will be the array of links
+    elements: e[],        //this will be the array of links
 
 
 
