@@ -181,8 +181,15 @@
     //var i will hold the value generated and will always be the starting point. Var j will increase the position
     //randomly
 
+    var carOneSpeed = function(){
 
 
+
+        interval = setInterval(speedCarOne, 1000 / 10);
+        speedCarOne(carRed,40,405);
+    };
+
+    var interval;
     var j;
     var i =0;
 
@@ -233,21 +240,20 @@
             ctx.drawImage(car,155,455,70,40);
 
             button.onclick = function fast(){
-                speedCarOne(carRed,100,455);
+                speedCarOne(carRed,100,405);
 
-            }
-        }         else if(i+j>=1155&&k+l>=1155){
-                   button.removeEventListener()
+            };
+
         }
-
-
     }
 
 
     button.onclick = function fast(){
 
-        speedCarOne(carRed,120,405);
-        speedCarTwo(carBlue,100,455);
+        speedCarOne(carRed,40,405);
+        speedCarTwo(carBlue,40,455);
+
+      //setInterval(speedCarOne, 1000/100);
 
     };
 
