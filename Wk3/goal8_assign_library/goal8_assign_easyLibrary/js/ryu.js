@@ -18,9 +18,8 @@
 
 //this is stp c
 var MyLibrary = function(e){
-     var arrayOfLinks =[];   //stores the links from the node
+
     for(var i = 0; i < e.length; i++){
-        arrayOfLinks.push(e[i]);
         e[i].onclick = function(){
             console.log(this.href);
 
@@ -28,9 +27,11 @@ var MyLibrary = function(e){
         }
     }
 
-    return new MyLibrary.prototype.init(e);     //this returns the values created below by the function init
+    return new MyLibrary.prototype.init();     //this returns the values created below by the function init
                                                 // which is part of the MyLibrary prototype
 };
+
+
 
 // √ c. Setup the Prototype section. Make the necessary changes to the template to ensure the
 //Constructor can use the Prototype.
@@ -41,9 +42,9 @@ MyLibrary.prototype = {
 
 // e. The "init" function will accept a parameter from the Constructor.
 
-    init: function(e){
+    init: function(){
 
-        elements.[]
+
 
         //I have no idea what the init function does
 
@@ -53,7 +54,7 @@ MyLibrary.prototype = {
 // Set the Prototypes ".elements" property to equal the parameter being passed into the "init" function.
 
                                 // function init creates an array of elements
-    elements: e[],        //this will be the array of links
+    elements: [],        //this will be the array of links
 
 
 

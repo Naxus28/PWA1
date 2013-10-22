@@ -64,7 +64,7 @@ INSTRUCTIONS:
 
     console.log("this is the call to MyLibrary"+  new MyLibrary(allLinks));
 
-    MyLibrary.prototype.init(allLinks);
+
 
 
 

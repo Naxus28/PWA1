@@ -28,12 +28,18 @@ utils.convertTemp = function(t,u){
     if(u=="f"){
         temp = "formula to convert to celcius";
     }        else {
-        temp = "formula to convert to firenheigth"
+        temp = "formula to convert to firenheight"
     }
 };
 
 utils.areaRectangle = function(b,h){
 
     return b*h
-
 };
+
+
+utils.areaCircle = function(r){
+
+          return 3.14*r*r
+};
+
