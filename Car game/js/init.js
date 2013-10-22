@@ -82,26 +82,26 @@
 
 
 
-//adds the title of the game  and change colors continuously - figure out how
-     (function(){
-
-         ctx.beginPath();
-         ctx.fillStyle = "#3333FF";
-         ctx.font = "bold 40px Coronet";     //size of the font and font type
-         ctx.fillText("SUPER RACE 2013", 430, 30);
-
-    })();
+//adds the title of the game  and change colors continuously - figure out how - NOT WORKING YET
+//     (function(){
+//
+//         ctx.beginPath();
+//         ctx.fillStyle = "#3333FF";
+//         ctx.font = "bold 40px Coronet";     //size of the font and font type
+//         ctx.fillText("SUPER RACE 2013", 430, 30);
+//
+//    })();
 
 
 
    //function that draws the vertical lines at the end of the track - takes the line width as argument
-    function finalLines(thicknessVerticalLines){
+    function finalLines(verticalLines){
         ctx.beginPath();   //every beginPath starts a new pattern. If I want to start a new pattern
                            // and don't write this function, JS will assume the same properties of the a previous
                            //pattern (i.e. line width)
 
         ctx.strokeStyle = "#000000";
-        ctx.lineWidth =thicknessVerticalLines;
+        ctx.lineWidth =verticalLines;
 
         ctx.moveTo(1150,400);   //solid first final line
         ctx.lineTo(1150,500);
@@ -183,16 +183,30 @@
 
 
 
-
+    var j;
     var i =0;
 
     function speedCarOne(car,rangeOfSpeed,y){
 
-        var j = Math.random()*rangeOfSpeed+1;
+        console.log("in function speed car one");
+
+        j = Math.random()*rangeOfSpeed+1;
 
         ctx.drawImage(car,j+i,y,70,40);
 
         i=i+j;
+
+        if(j+i>=1130){
+
+            ctx.drawImage(car,155,405,70,40);
+
+            button.onclick = function fast(){
+                speedCarTwo(carBlue,100,455);
+
+            };
+
+
+        }
 
     }
 
@@ -201,28 +215,43 @@
     //I am passing a higher speed range for the blue car. This increases the chance of Blue car winning, but since the numbers
     //are generated randomly, the red car can still win.
 
+
+   var l;
     var k =0;
 
     function speedCarTwo(car,rangeOfSpeed,y){
+        console.log("in function speed car two");
 
-        var l = Math.random()*rangeOfSpeed+1;
+        l = Math.random()*rangeOfSpeed+1;
 
         ctx.drawImage(car,l+k,y,70,40);
 
         k=k+l;
 
-        if(l+k==)
+        if(k+l>=1155){
+
+            ctx.drawImage(car,155,455,70,40);
+
+            button.onclick = function fast(){
+                speedCarOne(carRed,100,455);
+
+            }
+        }         else if(i+j>=1155&&k+l>=1155){
+                   button.removeEventListener()
+        }
+
 
     }
 
 
-
     button.onclick = function fast(){
 
-        speedCarOne(carRed,95,405);
+        speedCarOne(carRed,120,405);
         speedCarTwo(carBlue,100,455);
 
     };
+
+
 
     buttonTwo.onclick = function newRace(){
       location.reload();
