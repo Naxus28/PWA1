@@ -75,7 +75,7 @@
         crowd.addEventListener("load", onLoad);
 
         function onLoad(e){
-            ctx.drawImage(crowd,100,70,1000,230);
+            ctx.drawImage(crowd,100,90,1000,270);
 
         }
     })();
@@ -83,16 +83,19 @@
 
 
 //adds the title of the game  and change colors continuously - figure out how - NOT WORKING YET
-//     (function(){
-//
-//         ctx.beginPath();
-//         ctx.fillStyle = "#3333FF";
-//         ctx.font = "bold 40px Coronet";     //size of the font and font type
-//         ctx.fillText("SUPER RACE 2013", 430, 30);
-//
-//    })();
+     function title(){
 
+         ctx.beginPath();
+         var fill=ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
+         console.log("this is fill "+ fill);
+         ctx.font = "bold 75px Coronet";     //size of the font and font type
+         ctx.fillText("SUPER RACE 2013", 280, 65);
 
+         //setInterval(title, 16000/3)
+
+    }
+
+    title();
 
    //function that draws the vertical lines at the end of the track - takes the line width as argument
     function finalLines(verticalLines){
@@ -181,13 +184,18 @@
     //var i will hold the value generated and will always be the starting point. Var j will increase the position
     //randomly
 
-    var carOneSpeed = function(){
+//
+//
+//  var carOneSpeed = function(){
+//
+//
+//
+//        interval = setInterval(speedCarOne, 1000 / 10);
+//        speedCarOne(carRed,40,405);
+//    };
+//
 
 
-
-        interval = setInterval(speedCarOne, 1000 / 10);
-        speedCarOne(carRed,40,405);
-    };
 
     var interval;
     var j;
@@ -252,6 +260,7 @@
 
         speedCarOne(carRed,40,405);
         speedCarTwo(carBlue,40,455);
+       title();
 
       //setInterval(speedCarOne, 1000/100);
 
