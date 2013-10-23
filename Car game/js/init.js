@@ -323,7 +323,7 @@
     }
 
     function speedCarOneTurbo(car,rangeOfSpeed,y){
-        j = Math.random()*rangeOfSpeed*5+10;
+        j = Math.random()*rangeOfSpeed*5+20;
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
         console.log("this is i in the turbo "+i);
@@ -349,7 +349,7 @@
 
 
     function speedCarTwoTurbo(car,rangeOfSpeed,y){
-        l = Math.random()*rangeOfSpeed*5+10;
+        l = Math.random()*rangeOfSpeed*5+20;
         ctx.drawImage(car,l+k,y,75,40);
         k=k+l;
         console.log("this is k in the turbo "+k);
@@ -439,12 +439,12 @@
 
         ctx.beginPath();                     //this creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
-        ctx.rect(i,405,75,40);                 //in other words, when the car moves, the previous car will be erased from
+        ctx.rect(i-1,405,85,40);                 //in other words, when the car moves, the previous car will be erased from
         ctx.fill();                           //the canvas
 
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
-        ctx.rect(k,455,75,40);
+        ctx.rect(k-1,455,85,40);
         ctx.fill();
 
 
