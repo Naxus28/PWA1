@@ -20,6 +20,9 @@
     var buttonOne = document.querySelector("#btn1");
     var buttonTwo = document.querySelector("#btn2");
     var buttonThree = document.querySelector("#btn3");
+    var  buttonTurbo = document.querySelector("#btn4");
+
+
 
  //this adds the crowd to the canvas
     (function(){
@@ -307,13 +310,23 @@
     //var i will hold the value generated and will always be the starting point. Var j will increase the position
     //randomly
 
-    var j;
-    var i =0;
+    var j;                //this is the speed. It changes every time the function is called and it is not stored
+    var i = 0;            //this is going to store the value of the new position of the car every time the car runs
+
+
 
     function speedCarOne(car,rangeOfSpeed,y){
-        j = Math.random()*rangeOfSpeed+10;
+        j = Math.random()*rangeOfSpeed+5;
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
+        console.log("this is i "+i);
+    }
+
+    function speedCarOneTurbo(car,rangeOfSpeed,y){
+        j = Math.random()*rangeOfSpeed*5+10;
+        ctx.drawImage(car,j+i,y,75,40);
+        i=i+j;
+        console.log("this is i in the turbo "+i);
     }
 
 
@@ -323,19 +336,30 @@
 
 
     var l;
-    var k =0;
+    var k = 0;
+
+
 
     function speedCarTwo(car,rangeOfSpeed,y){
-        l = Math.random()*rangeOfSpeed+1;
+        l = Math.random()*rangeOfSpeed+5;
         ctx.drawImage(car,l+k,y,75,40);
         k=k+l;
+        console.log("this is k "+ k)
+    }
+
+
+    function speedCarTwoTurbo(car,rangeOfSpeed,y){
+        l = Math.random()*rangeOfSpeed*5+10;
+        ctx.drawImage(car,l+k,y,75,40);
+        k=k+l;
+        console.log("this is k in the turbo "+k);
     }
 
 
     buttonThree.addEventListener("click",drawCircle);   //will trigger the draw circle function, which draws the lights (red, yellow, green)
 
 
-    var trackLimit=1105;
+    var trackLimit=1076;
     var counterRed=0;
     var counterBlue=0;
 
@@ -347,7 +371,7 @@
 
         }
 
-        else  if(i+j>=trackLimit && k+l>=trackLimit && i+j===k+l){
+        else  if(i>=trackLimit && k>=trackLimit && i===k){
             ctx.beginPath();
             ctx.fillStyle = "#FFFFFF";
             ctx.rect(280,10,700,70);
@@ -357,7 +381,7 @@
 
         }
 
-        else if(i+j>=trackLimit && i+j>k+l && counterBlue<1){
+        else if(i>=trackLimit && i>k && counterBlue<1){
 
             ctx.beginPath();                   //white rectangle to cover the previous title
             ctx.fillStyle = "#FFFFFF";
@@ -370,7 +394,7 @@
             counterRed++;
         }
 
-        else if(k+l>=trackLimit && k+l>i+j && counterRed<1){
+        else if(k>=trackLimit && k>i && counterRed<1){
             ctx.beginPath();                               //white rectangle to cover the previous title
             ctx.fillStyle = "#FFFFFF";
             ctx.rect(270,10,700,70);
@@ -410,6 +434,27 @@
         winnerCheck()
     };
 
+
+    buttonTurbo.onclick = function turbo(){
+
+        ctx.beginPath();                     //this creates a white rectangle that will fill in the position
+        ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
+        ctx.rect(i,405,75,40);                 //in other words, when the car moves, the previous car will be erased from
+        ctx.fill();                           //the canvas
+
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(k,455,75,40);
+        ctx.fill();
+
+
+        finalLines(2);
+        linesAcrossEnd();
+
+        speedCarOneTurbo(carRed,40,405);
+        speedCarTwoTurbo(carBlue,40,455);
+        winnerCheck()
+    };
 
      buttonTwo.onclick = function newRace(){
       location.reload();
