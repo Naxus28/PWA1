@@ -21,34 +21,62 @@
     var buttonTwo = document.querySelector("#btn2");
     var buttonThree = document.querySelector("#btn3");
 
- //this self-executing function adds a flag to the end of the track
+ //this adds the crowd to the canvas
     (function(){
-       var flag = new Image();
-       flag.src = "http://s1.cdn.autoevolution.com/images/news/race-flags-nascar-9089_1.jpg";
-       flag.addEventListener("load", onLoad);
+        var crowd = new Image();
+        crowd.src = "http://t1.ftcdn.net/jpg/00/15/10/04/400_F_15100429_PPGCwqoXPAocRlzU6Jdif1Nw6Ig1dQ7s.jpg";
+        crowd.addEventListener("load", onLoad);
 
-       function onLoad(e){
-           ctx.drawImage(flag,1135,335,55,50);
+        function onLoad(e){
+            ctx.drawImage(crowd,100,90,1000,270);
 
-       }
-   })();
+        }
+    })();
+
+
+    function showTrophyRed(){
+        var trophy = new Image();
+        trophy.src = "http://cdn3.sbnation.com/imported_assets/1719611/trophy1_medium.gif";
+        ctx.drawImage(trophy,290,120,180,230);
+    }
+
+
+    function showTrophyBlue(){
+        var trophy = new Image();
+        trophy.src = "http://cdn3.sbnation.com/imported_assets/1719611/trophy1_medium.gif";
+        ctx.drawImage(trophy,750,120,180,230);
+    }
+
 
 //this function will print out a red car to the screen if the red car wins. It will be called by the function
-//titleCheck() at the bottom
+//winnerCheck() at the bottom
    function imageRedCarWin(){
         var redCar = new Image();
-        redCar.src = "http://www.partypro.com/mm_PARTYPRO_/Images/ADV630.JPG";
-        ctx.drawImage(redCar,1135,335,55,50);
+
+        ctx.beginPath();                 //white rectangle to cover the crowd
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(100,90,1000,270);
+        ctx.fill();
+
+        redCar.src = "http://ecx.images-amazon.com/images/I/412Z4jq9dyL._SL500_AA500_.jpg";
+        ctx.drawImage(redCar,500,130,400,250);
+        showTrophyRed();
         }
 
 //this function will print out a blue car to the screen if the blue car wins. It will be called by the function
-//titleCheck() at the bottom
+//winnerCheck() at the bottom
     function imageBlueCarWin(){
         var blueCar= new Image();
-        blueCar.src = "http://www.partypro.com/mm_PARTYPRO_/Images/ADV630.JPG";
-        ctx.drawImage(blueCar,1135,335,55,50);
-        }
 
+        ctx.beginPath();                   //white rectangle to cover the crowd
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(100,90,1000,270);
+        ctx.fill();
+
+        blueCar.src = "http://www.partypro.com/mm_PARTYPRO_/Images/ADV630.JPG";
+        ctx.drawImage(blueCar,250,150,400,250);
+        showTrophyBlue();
+        }
 
 
  //this adds the red car to the track
@@ -73,6 +101,18 @@
 
         function onLoad(e){
             ctx.drawImage(carBlue,0,455,70,40);
+
+        }
+    })();
+
+//this self-executing function adds a flag to the end of the track
+    (function(){
+        var flag = new Image();
+        flag.src = "http://s1.cdn.autoevolution.com/images/news/race-flags-nascar-9089_1.jpg";
+        flag.addEventListener("load", onLoad);
+
+        function onLoad(e){
+            ctx.drawImage(flag,1135,335,55,50);
 
         }
     })();
@@ -159,29 +199,13 @@
 
     eraseGreenCircle();
 
-
-
-//this adds the crowd to the canvas
-    (function(){
-        var crowd = new Image();
-        crowd.src = "http://t1.ftcdn.net/jpg/00/15/10/04/400_F_15100429_PPGCwqoXPAocRlzU6Jdif1Nw6Ig1dQ7s.jpg";
-        crowd.addEventListener("load", onLoad);
-
-        function onLoad(e){
-            ctx.drawImage(crowd,100,90,1000,270);
-
-        }
-    })();
-
-
-
     //prints out the first title on the canvas  (it is out of the function just below bc the function will be called by a button, which needs to be pressed).
 
     ctx.beginPath();
     ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
     //console.log("this is fill "+ fill);
     ctx.font = "bold 75px Coronet";     //size of the font and font type
-    ctx.fillText("SUPER RACE 2013", 280, 65);
+    ctx.fillText("SUPER RACE 2013", 270, 65);
 
 
     //adds the title of the game and change colors of the title continuously when the function is called (automatic interval overloaded machine)
@@ -192,7 +216,7 @@
          ctx.fillStyle = "#" + color;
          //console.log("this is fill "+ fill);
          ctx.font = "bold 75px Coronet";     //size of the font and font type
-         ctx.fillText(titleName, 280, 65);
+         ctx.fillText(titleName, 270, 65);
     }
 
 
@@ -287,7 +311,7 @@
     var i =0;
 
     function speedCarOne(car,rangeOfSpeed,y){
-        j = Math.random()*rangeOfSpeed+1;
+        j = Math.random()*rangeOfSpeed+10;
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
     }
@@ -311,12 +335,12 @@
     buttonThree.addEventListener("click",drawCircle);   //will trigger the draw circle function, which draws the lights (red, yellow, green)
 
 
-    var trackLimit=1100;
+    var trackLimit=1105;
     var counterRed=0;
     var counterBlue=0;
 
 
-    function titleCheck(){                           //this function will change the title depending on the winner
+    function winnerCheck(){                           //this function will change the title depending on the winner
                                                      //it also puts the picture of the winner car on the canvas
         if(i+j<trackLimit && k+l<trackLimit ){
             title("SUPER RACE 2013", ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10));
@@ -335,23 +359,30 @@
 
         else if(i+j>=trackLimit && i+j>k+l && counterBlue<1){
 
-            ctx.beginPath();
+            ctx.beginPath();                   //white rectangle to cover the previous title
             ctx.fillStyle = "#FFFFFF";
-            ctx.rect(280,10,700,70);
+            ctx.rect(270,10,700,70);
             ctx.fill();
 
             title("RED CAR WINS!!", "ff"+""+0+""+0+""+0+""+0);
+
             imageRedCarWin();
             counterRed++;
         }
 
         else if(k+l>=trackLimit && k+l>i+j && counterRed<1){
-            ctx.beginPath();
+            ctx.beginPath();                               //white rectangle to cover the previous title
             ctx.fillStyle = "#FFFFFF";
-            ctx.rect(280,10,700,70);
+            ctx.rect(270,10,700,70);
             ctx.fill();
 
             title("BLUE CAR WINS!!", 0+""+0+""+0+""+0+"ff");
+
+//            ctx.beginPath();                   //white rectangle to cover the crowd
+//            ctx.fillStyle = "#FFFFFF";
+//            ctx.rect(100,90,1000,270);
+//            ctx.fill();
+
             imageBlueCarWin();
             counterBlue++;
         }
@@ -376,7 +407,7 @@
 
         speedCarOne(carRed,40,405);
         speedCarTwo(carBlue,40,455);
-        titleCheck()
+        winnerCheck()
     };
 
 
