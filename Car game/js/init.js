@@ -22,13 +22,8 @@
     var buttonTwo = document.querySelector("#btn2");
     var buttonThree = document.querySelector("#btn3");
     var buttonTurbo = document.querySelector("#btn4");
-
-
     var nameRed = prompt("PLAYER ONE (RED CAR), PLEASE INPUT YOUR NAME").toUpperCase();
     var nameBlue = prompt("PLAYER TWO (BLUE CAR), PLEASE INPUT YOUR NAME").toUpperCase();
-
-
-
 
     //this adds the crowd to the canvas
     (function(){
@@ -130,15 +125,12 @@
 //the 3 functions below add the "lights" to the canvas and texts inside the lights (a red circle, a yellow circle, and a green circle).
 
   function drawCircle(){
-
-      //console.log("in the function circle");
       ctx.beginPath();                          //draws a red circle
       ctx.fillStyle = "#FF0000";
       ctx.strokeStyle = "#CC0000";
       ctx.arc(30,180,22,0,Math.PI*2);
       ctx.fill();
       ctx.stroke();
-
 
       ctx.beginPath();                         //puts text in the circle
       ctx.fillStyle = "#000000";
@@ -149,7 +141,6 @@
   }
 
     function drawCircleYellow(){
-
         ctx.beginPath();
         ctx.fillStyle = "#FFFF00";
         ctx.strokeStyle = "#FFCC00";
@@ -162,7 +153,6 @@
         ctx.font = "bold 17px Coronet";
         ctx.fillText("SET", 14, 245);
 
-
         ctx.beginPath();                 //this will erase the previous circle - (fill it with white color)
         ctx.fillStyle = "#FFFFFF";
         ctx.arc(30,180,25,0,Math.PI*2);   // I increased the radius from 23 to 25 to make sure the circle will be completely
@@ -173,10 +163,7 @@
           setTimeout( drawCircleGreen, 2000);
     }
 
-
-
     function drawCircleGreen(){
-
         ctx.beginPath();
         ctx.fillStyle = "#33CC00";
         ctx.strokeStyle = "#009900";
@@ -188,7 +175,6 @@
         ctx.fillStyle = "#000000";
         ctx.font = "bold 23px Coronet";
         ctx.fillText("GO!", 10, 308);
-
 
         ctx.beginPath();                  //this will erase the previous circle - (fill it with white color)
         ctx.fillStyle = "#FFFFFF";
@@ -207,6 +193,7 @@
       }
 
     eraseGreenCircle();
+
 
     //prints out the first title on the canvas  (it is out of the function just below bc the function will be called by a button, which needs to be pressed).
 
@@ -236,12 +223,12 @@
                            //pattern (i.e. line width)
 
         ctx.strokeStyle = "#000000";
-        ctx.lineWidth =verticalLines;
+        ctx.lineWidth = verticalLines;
 
-        ctx.moveTo(1150,400);   //solid first final line
+        ctx.moveTo(1150,400);   //solid first final line (vertical)
         ctx.lineTo(1150,500);
 
-        ctx.moveTo(1199,400);    //solid second final line
+        ctx.moveTo(1199,400);    //solid second final line (vertical)
         ctx.lineTo(1199,500);
 
         ctx.stroke();
@@ -319,8 +306,6 @@
     var j;                //this is the speed. It changes every time the function is called and it is not stored
     var i = 0;            //this is going to store the value of the new position of the car every time the car runs
 
-
-
     function speedCarOne(car,rangeOfSpeed,y){
         j = ~~(Math.random()*rangeOfSpeed+5);
         ctx.drawImage(car,j+i,y,75,40);
@@ -356,16 +341,12 @@
         ctx.fillText(nameRed + " traveled "+ coordinate + " px", 15, 380);
     }
 
-
     //this does the same as the function above, but for the blue car. Notice that when I call the two functions below
     //I am passing a higher speed range for the blue car. This increases the chance of Blue car winning, but since the numbers
     //are generated randomly, the red car can still win.
 
-
     var l;
     var k = 0;
-
-
 
     function speedCarTwo(car,rangeOfSpeed,y){
         l = ~~(Math.random()*rangeOfSpeed+5);
@@ -373,7 +354,6 @@
         k=k+l;
         console.log("this is k "+ k);
     }
-
 
     function speedCarTwoTurbo(car,rangeOfSpeed,y){
         l = ~~(Math.random()*rangeOfSpeed*5+20);
@@ -398,14 +378,11 @@
 
         ctx.beginPath();
         ctx.fillStyle = "#000000";
-        //console.log("this is fill "+ fill);
         ctx.font = "bold 20px Coronet";     //size of the font and font type
         ctx.fillText(nameBlue+" traveled "+ coordinate + " px", 15, 540);
     }
 
-
     buttonThree.addEventListener("click",drawCircle);   //will trigger the draw circle function, which draws the lights (red, yellow, green)
-
 
     var trackLimit=1076;
     var counterRed=0;                               //these counters are necessary to guarantee that
@@ -464,7 +441,7 @@
     }
 
 
-    buttonOne.onclick = function fast(){
+    buttonOne.onclick = function speed(){
 
         ctx.beginPath();                     //this creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
@@ -475,7 +452,6 @@
         ctx.fillStyle = "#FFFFFF";
         ctx.rect(k-1,455,75,40);
         ctx.fill();
-
 
         finalLines(2);
         linesAcrossEnd();
@@ -507,7 +483,6 @@
         ctx.rect(k-1,455,85,40);
         ctx.fill();
 
-
         finalLines(2);
         linesAcrossEnd();
 
@@ -523,8 +498,7 @@
      buttonTwo.onclick = function newRace(){
       location.reload();
     };
-
-
+})();
 
 
 
@@ -551,6 +525,3 @@
 //
 //  var pilotTwoCar = new Car("racerTwo","blue",carBlue,10,2,455);
 
-
-
-})();
