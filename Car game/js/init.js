@@ -182,10 +182,10 @@
     ctx.fillText("SUPER RACE 2013", 280, 65);
 
 
-     function title(titleName){
+     function title(titleName, color){
 
          ctx.beginPath();
-         ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
+         ctx.fillStyle = "#" + color;
          //console.log("this is fill "+ fill);
          ctx.font = "bold 75px Coronet";     //size of the font and font type
          ctx.fillText(titleName, 280, 65);
@@ -350,13 +350,17 @@
 //        drawCircle()
 //    };
 
+    var trackLimit=1100;
+    var counterRed=0;
+    var counterBlue=0;
+
     function titleCheck(){
-        if(i+j<1080 && k+l<1080){
-            title("SUPER RACE 2013");
+        if(i+j<trackLimit && k+l<trackLimit ){
+            title("SUPER RACE 2013", ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10));
 
         }
 
-        else  if(i+j>1080 && k+l>1080){
+        else  if(i+j>=trackLimit && k+l>=trackLimit && i+j===k+l){
             ctx.beginPath();
             ctx.fillStyle = "#FFFFFF";
             ctx.rect(280,10,700,70);
@@ -366,26 +370,32 @@
 
         }
 
-        else if(k+l>1080){
-            ctx.beginPath();
-            ctx.fillStyle = "#FFFFFF";
-            ctx.rect(280,10,700,70);
-            ctx.fill();
-
-            title("BLUE CAR WINS!!");
-        }
-
-
-        else if(i+j>1080){
+        else if(i+j>=trackLimit && i+j>k+l && counterBlue<1){
 
             ctx.beginPath();
             ctx.fillStyle = "#FFFFFF";
             ctx.rect(280,10,700,70);
             ctx.fill();
 
-            title("RED CAR WINS!!");
-
+            title("RED CAR WINS!!", "ff"+""+0+""+0+""+0+""+0);
+            counterRed++;
         }
+
+        else if(k+l>=trackLimit && k+l>i+j && counterRed<1){
+            ctx.beginPath();
+            ctx.fillStyle = "#FFFFFF";
+            ctx.rect(280,10,700,70);
+            ctx.fill();
+
+            title("BLUE CAR WINS!!", 0+""+0+""+0+""+0+"ff");
+            counterBlue++;
+        }
+
+
+
+
+
+
     }
 
 
