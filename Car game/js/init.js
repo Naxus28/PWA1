@@ -291,19 +291,28 @@
 
 
 
-    var interval;
+
+
     var j;
     var i =0;
 
     function speedCarOne(car,rangeOfSpeed,y){
 
-        console.log("in function speed car one");
+        //console.log("in function speed car one");
 
+        ctx.beginPath();                     //this creates a white rectangle that will fill in the position
+        ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
+        ctx.rect(i-1,y,75,40);                 //in other words, when the car moves, the previous car will be erased from
+        ctx.fill();                           //the canvas
+                                              //ASK SCOTT; WHY DID I NEED TO PUT -1 IN THE X VARIABLE IN THE CTX.RECT/
+                                              //it was leaving a line of he car behind, and the -1 fixed it.
         j = Math.random()*rangeOfSpeed+1;
 
         ctx.drawImage(car,j+i,y,70,40);
 
         i=i+j;
+
+
 
         //setInterval(speedCarOne, 3000/3);
 
@@ -330,9 +339,14 @@
     function speedCarTwo(car,rangeOfSpeed,y){
         console.log("in function speed car two");
 
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(k-1,y,90,40);
+        ctx.fill();
+
         l = Math.random()*rangeOfSpeed+1;
 
-        ctx.drawImage(car,l+k,y,70,40);
+        ctx.drawImage(car,l+k,y,75,40);
 
         k=k+l;
 
