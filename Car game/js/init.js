@@ -18,11 +18,11 @@
 
     var ctx = canvas.getContext("2d");
 
-    var button = document.querySelector("button");
+    var buttonOne = document.querySelector("#btn1");
 
     var buttonTwo = document.querySelector("#btn2");
 
-
+    var buttonThree = document.querySelector("#btn3");
 
         //console.log("this is my button "+ button);
         //console.log("this is btn2 "+ buttonTwo);
@@ -68,10 +68,52 @@
     })();
 
 
-    //this adds the crowd to the canvas
+//this adds a green circle to the canvas
+   var counter = 0;
+
+    console.log("this is the counter "+ counter);
+  function drawCircle(){
+
+      //console.log("in the function circle");
+      ctx.beginPath();
+      ctx.fillStyle = "#FF0000";
+      ctx.arc(30,250,20,0,Math.PI*2);
+      ctx.fill();
+      //ctx.stroke();
+      counter++;
+      console.log("this is the counter in the function"+ counter);
+
+      if(counter == 1){
+         console.log("in the if");
+          ctx.beginPath();
+          ctx.fillStyle = "#FFFF33";
+          ctx.arc(30,300,20,0,Math.PI*2);
+          ctx.fill();
+          counter++;
+          console.log("this is the counter in the if "+ counter);
+      }
+
+     if(counter == 2){
+          console.log("this is the counter in the else if "+ counter);
+          console.log("in the else if");
+          ctx.beginPath();
+          ctx.fillStyle = "#33CC00";
+          ctx.arc(30,350,20,0,Math.PI*2);
+          ctx.fill();
+
+
+      }
+
+//      setInterval(drawCircle, 16000/6)
+  }
+
+
+
+
+//this adds the crowd to the canvas
     (function(){
         var crowd = new Image();
-        crowd.src = "http://www.visualphotos.com/photo/1x6360706/crowd_on_bleachers_texas_motor_speedway_texas_usa_700-00681445.jpg";
+        crowd.src = "http://t1.ftcdn.net/jpg/00/15/10/04/400_F_15100429_PPGCwqoXPAocRlzU6Jdif1Nw6Ig1dQ7s.jpg";
         crowd.addEventListener("load", onLoad);
 
         function onLoad(e){
@@ -211,18 +253,17 @@
 
         i=i+j;
 
+        //setInterval(speedCarOne, 3000/3);
+
         if(j+i>=1130){
 
             ctx.drawImage(car,155,405,70,40);
 
-            button.onclick = function fast(){
-                speedCarTwo(carBlue,100,455);
-
-            };
-
-
+//            button.onclick = function fast(){
+//                speedCarTwo(carBlue,100,455);
+//
+//            };
         }
-
     }
 
 
@@ -247,25 +288,33 @@
 
             ctx.drawImage(car,155,455,70,40);
 
-            button.onclick = function fast(){
-                speedCarOne(carRed,100,405);
-
-            };
+//            button.onclick = function fast(){
+//                speedCarOne(carRed,100,405);
+//
+//            };
 
         }
     }
 
 
-    button.onclick = function fast(){
+
+    buttonThree.addEventListener("click",drawCircle);
+
+
+//    buttonThree.onclick = function light(){
+//        drawCircle()
+//    };
+
+
+    buttonOne.onclick = function fast(){
 
         speedCarOne(carRed,40,405);
         speedCarTwo(carBlue,40,455);
-       title();
+        title();
 
       //setInterval(speedCarOne, 1000/100);
 
     };
-
 
 
     buttonTwo.onclick = function newRace(){
