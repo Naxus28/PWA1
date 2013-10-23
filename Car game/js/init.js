@@ -159,9 +159,6 @@
 
 
 
-
-
-
 //this adds the crowd to the canvas
     (function(){
         var crowd = new Image();
@@ -270,7 +267,7 @@
     trackLines(4);
 
 
-   //this function makes the red car move - notice there are 2 variables bc I am generating a random number for the
+   //this function below makes the red car move - notice there are 2 variables bc I am generating a random number for the
    //position of the car, which means that if I have one variable I will not be able to hold the value
     //of the previous position. For instance: the car first moves 10 px. we need to hold this value so the next time
     //the car's starting point is 10. Then we "accelerate it" by adding a random number to it. then we need to hold that second value bc this will be the
@@ -290,21 +287,18 @@
 //
 
 
-
-
-
     var j;
     var i =0;
 
     function speedCarOne(car,rangeOfSpeed,y){
 
-        //console.log("in function speed car one");
-
         ctx.beginPath();                     //this creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
         ctx.rect(i-1,y,75,40);                 //in other words, when the car moves, the previous car will be erased from
         ctx.fill();                           //the canvas
-                                              //ASK SCOTT; WHY DID I NEED TO PUT -1 IN THE X VARIABLE IN THE CTX.RECT/
+
+        finalLines(2);
+        linesAcrossEnd();                                     //ASK SCOTT; WHY DID I NEED TO PUT -1 IN THE X VARIABLE IN THE CTX.RECT/
                                               //it was leaving a line of he car behind, and the -1 fixed it.
         j = Math.random()*rangeOfSpeed+1;
 
@@ -312,19 +306,9 @@
 
         i=i+j;
 
-
-
         //setInterval(speedCarOne, 3000/3);
 
-        if(j+i>=1130){
 
-            ctx.drawImage(car,155,405,70,40);
-
-//            button.onclick = function fast(){
-//                speedCarTwo(carBlue,100,455);
-//
-//            };
-        }
     }
 
 
@@ -339,10 +323,14 @@
     function speedCarTwo(car,rangeOfSpeed,y){
         console.log("in function speed car two");
 
+
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
-        ctx.rect(k-1,y,90,40);
+        ctx.rect(k-1,y,75,40);
         ctx.fill();
+
+        finalLines(2);
+        linesAcrossEnd();
 
         l = Math.random()*rangeOfSpeed+1;
 
@@ -350,21 +338,13 @@
 
         k=k+l;
 
-        if(k+l>=1155){
-
-            ctx.drawImage(car,155,455,70,40);
-
-//            button.onclick = function fast(){
-//                speedCarOne(carRed,100,405);
-//
-//            };
-
-        }
     }
 
 
 
-    buttonThree.addEventListener("click",drawCircle);
+    buttonThree.addEventListener("click",drawCircle);   //will trigger the draw circle function, which draws the lights (red, yellow, green)
+
+
 
 
 //    buttonThree.onclick = function light(){
