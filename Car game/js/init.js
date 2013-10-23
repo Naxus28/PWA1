@@ -402,13 +402,21 @@
 
 
     var trackLimit=1076;
-    var counterRed=0;
-    var counterBlue=0;
+    var counterRed=0;                               //these counters are necessary to guarantee that
+    var counterBlue=0;                              //when a car wins, the other may pass in front of it
+                                                    //after the final line but the cars that came second will not
+                                                    //become the winner (the title will not change).
+                                                    //There are 3 conditions for a car to be winner:
+                                                    //cross the final line, be ahead of the other, and
+                                                    //that the counter of the other car is not >1.
+                                                    //the counter only becomes greater than one when the car
+                                                     //crosses the line first.
+
 
 
     function winnerCheck(){                           //this function will change the title depending on the winner
                                                      //it also puts the picture of the winner car on the canvas
-        if(i+j<trackLimit && k+l<trackLimit ){
+        if(i<trackLimit && k<trackLimit ){
             title("SUPER RACE 2013", ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10));
 
         }
@@ -443,11 +451,6 @@
             ctx.fill();
 
             title("BLUE CAR WINS!!", 0+""+0+""+0+""+0+"ff");
-
-//            ctx.beginPath();                   //white rectangle to cover the crowd
-//            ctx.fillStyle = "#FFFFFF";
-//            ctx.rect(100,90,1000,270);
-//            ctx.fill();
 
             imageBlueCarWin();
             counterBlue++;
