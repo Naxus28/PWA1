@@ -17,15 +17,9 @@
     canvas.height = 1000;
 
     var ctx = canvas.getContext("2d");
-
     var buttonOne = document.querySelector("#btn1");
-
     var buttonTwo = document.querySelector("#btn2");
-
     var buttonThree = document.querySelector("#btn3");
-
-        //console.log("this is my button "+ button);
-        //console.log("this is btn2 "+ buttonTwo);
 
  //this self-executing function adds a flag to the end of the track
     (function(){
@@ -38,6 +32,22 @@
 
        }
    })();
+
+//this function will print out a red car to the screen if the red car wins. It will be called by the function
+//titleCheck() at the bottom
+   function imageRedCarWin(){
+        var redCar = new Image();
+        redCar.src = "http://www.partypro.com/mm_PARTYPRO_/Images/ADV630.JPG";
+        ctx.drawImage(redCar,1135,335,55,50);
+        }
+
+//this function will print out a blue car to the screen if the blue car wins. It will be called by the function
+//titleCheck() at the bottom
+    function imageBlueCarWin(){
+        var blueCar= new Image();
+        blueCar.src = "http://www.partypro.com/mm_PARTYPRO_/Images/ADV630.JPG";
+        ctx.drawImage(blueCar,1135,335,55,50);
+        }
 
 
 
@@ -68,7 +78,7 @@
     })();
 
 
-//this adds a green circle to the canvas
+//the 3 functions below add the "lights" to the canvas (a red circle, a yellow circle, and a green circle).
 
   function drawCircle(){
 
@@ -81,18 +91,12 @@
       ctx.stroke();
 
 
-      ctx.beginPath();
+      ctx.beginPath();                         //puts text in the circle
       ctx.fillStyle = "#000000";
       ctx.font = "bold 11px Coronet";
       ctx.fillText("READY", 11, 244);
 
-
-
-      //ctx.stroke();
-
-      //console.log("this is the counter in the function"+ counter);
-
-      setTimeout(drawCircleYellow, 2000);
+      setTimeout(drawCircleYellow, 2000);      //this will call the next "light"(yellow - function bellow) after the set time - 2 secs
   }
 
     function drawCircleYellow(){
@@ -110,7 +114,7 @@
         ctx.fillText("SET", 14, 305);
 
 
-        ctx.beginPath();                 //this will erase the previous circle - or fill it with white color
+        ctx.beginPath();                 //this will erase the previous circle - (fill it with white color)
         ctx.fillStyle = "#FFFFFF";
         ctx.arc(30,240,25,0,Math.PI*2);   // I increased the radius from 23 to 25 to make sure the circle will be completely
         ctx.fill();                       //covered with white color. If I use radius=23 the outline of the circle still shows (why?? no idea)
@@ -123,8 +127,6 @@
 
 
     function drawCircleGreen(){
-          //console.log("this is the counter in the else if "+ counter);
-          //console.log("in the else if");
 
         ctx.beginPath();
         ctx.fillStyle = "#33CC00";
@@ -133,13 +135,13 @@
         ctx.fill();
         ctx.stroke();
 
-        ctx.beginPath();
+        ctx.beginPath();                            //puts text in the circle
         ctx.fillStyle = "#000000";
         ctx.font = "bold 23px Coronet";
         ctx.fillText("GO!", 10, 368);
 
 
-        ctx.beginPath();                  //this will erase the previous circle - or fill it with white color
+        ctx.beginPath();                  //this will erase the previous circle - (fill it with white color)
         ctx.fillStyle = "#FFFFFF";
         ctx.arc(30,300,28,0,Math.PI*2);
         ctx.fill();
@@ -147,7 +149,7 @@
     }
 
       function eraseGreenCircle(){
-          ctx.beginPath();                  //this will erase the previous circle - or fill it with white color
+          ctx.beginPath();                  //this will erase the previous circle - (fill it with white color)
           ctx.fillStyle = "#FFFFFF";
           ctx.arc(30,360,30,0,Math.PI*2);
           ctx.fill();
@@ -173,7 +175,7 @@
 
 
 
-//adds the title of the game  and change colors continuously
+    //prints out the first title on the canvas  (it is out of the function just below bc the function will be called by a button, which needs to be pressed).
 
     ctx.beginPath();
     ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
@@ -182,19 +184,17 @@
     ctx.fillText("SUPER RACE 2013", 280, 65);
 
 
-     function title(titleName, color){
+    //adds the title of the game and change colors of the title continuously when the function is called (automatic interval overloaded machine)
+
+    function title(titleName, color){
 
          ctx.beginPath();
          ctx.fillStyle = "#" + color;
          //console.log("this is fill "+ fill);
          ctx.font = "bold 75px Coronet";     //size of the font and font type
          ctx.fillText(titleName, 280, 65);
-
-         //setInterval(title, 16000/3)
-
     }
 
-    //title("SUPER RACE 2013");
 
    //function that draws the vertical lines at the end of the track - takes the line width as argument
     function finalLines(verticalLines){
@@ -217,7 +217,7 @@
     finalLines(2);
 
 
-    function linesAcrossEnd(){
+    function linesAcrossEnd(){       //lines that run across the two final lines to show it is the final line area
         ctx.beginPath();
         ctx.strokeStyle = "#000000";
         ctx.lineWidth = 3;
@@ -264,7 +264,7 @@
         for(var i=0;i<11; i++){            //loops through and paints the "dotted" lines of the middle
             console.log("in the loop");    //until the end of the canvas - 11 loops because the line increments by 100 px every loop
             ctx.moveTo(2*increment,450);    //the starting point is 50 and the second line starts at 150 - this leaves 50 px blank.
-            ctx.lineTo(2*increment+50,450); // The loop reiterate the pattern
+            ctx.lineTo(2*increment+50,450); // The loop reiterates the pattern
             increment=increment+50;
             ctx.stroke();
         }
@@ -283,36 +283,13 @@
     //var i will hold the value generated and will always be the starting point. Var j will increase the position
     //randomly
 
-//
-//
-//  var carOneSpeed = function(){
-//
-//
-//
-//        interval = setInterval(speedCarOne, 1000 / 10);
-//        speedCarOne(carRed,40,405);
-//    };
-//
-
-
     var j;
     var i =0;
 
     function speedCarOne(car,rangeOfSpeed,y){
-
-
-//        finalLines(2);
-//        linesAcrossEnd();                                     //ASK SCOTT; WHY DID I NEED TO PUT -1 IN THE X VARIABLE IN THE CTX.RECT/
-                                              //it was leaving a line of he car behind, and the -1 fixed it.
         j = Math.random()*rangeOfSpeed+1;
-
         ctx.drawImage(car,j+i,y,75,40);
-
         i=i+j;
-
-        //setInterval(speedCarOne, 3000/3);
-
-
     }
 
 
@@ -325,36 +302,22 @@
     var k =0;
 
     function speedCarTwo(car,rangeOfSpeed,y){
-
-
-
-//        finalLines(2);
-//        linesAcrossEnd();
-
         l = Math.random()*rangeOfSpeed+1;
-
         ctx.drawImage(car,l+k,y,75,40);
-
         k=k+l;
-
     }
-
 
 
     buttonThree.addEventListener("click",drawCircle);   //will trigger the draw circle function, which draws the lights (red, yellow, green)
 
 
-
-
-//    buttonThree.onclick = function light(){
-//        drawCircle()
-//    };
-
     var trackLimit=1100;
     var counterRed=0;
     var counterBlue=0;
 
-    function titleCheck(){
+
+    function titleCheck(){                           //this function will change the title depending on the winner
+                                                     //it also puts the picture of the winner car on the canvas
         if(i+j<trackLimit && k+l<trackLimit ){
             title("SUPER RACE 2013", ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10));
 
@@ -378,6 +341,7 @@
             ctx.fill();
 
             title("RED CAR WINS!!", "ff"+""+0+""+0+""+0+""+0);
+            imageRedCarWin();
             counterRed++;
         }
 
@@ -388,14 +352,9 @@
             ctx.fill();
 
             title("BLUE CAR WINS!!", 0+""+0+""+0+""+0+"ff");
+            imageBlueCarWin();
             counterBlue++;
         }
-
-
-
-
-
-
     }
 
 
@@ -421,15 +380,13 @@
     };
 
 
-
-      //setInterval(speedCarOne, 1000/100);
-
-
-
-
-    buttonTwo.onclick = function newRace(){
+     buttonTwo.onclick = function newRace(){
       location.reload();
     };
+
+
+
+
 
 
 // constructor function Car
