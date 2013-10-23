@@ -330,6 +330,12 @@
     }
 
     //will print out to the canvas the position of the red car in pixels. changes every time the button is clicked
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000000";
+    ctx.font = "bold 20px Coronet";     //size of the font and font type
+    ctx.fillText("Red Car traveled 0 px", 15, 380);
+
     function positionRed(coordinate){
 
         ctx.beginPath();
@@ -371,6 +377,12 @@
     }
 
     //will print out to the canvas the position of the blue car in pixels. changes every time the button is clicked
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000000";
+    ctx.font = "bold 20px Coronet";     //size of the font and font type
+    ctx.fillText("Blue Car traveled 0 px", 15, 540);
+
     function positionBlue(coordinate){
 
         ctx.beginPath();
@@ -382,7 +394,7 @@
         ctx.fillStyle = "#000000";
         //console.log("this is fill "+ fill);
         ctx.font = "bold 20px Coronet";     //size of the font and font type
-        ctx.fillText("Red Car traveled "+ coordinate + " px", 15, 540);
+        ctx.fillText("Blue Car traveled "+ coordinate + " px", 15, 540);
     }
 
 
@@ -445,10 +457,6 @@
 
     buttonOne.onclick = function fast(){
 
-
-        positionRed(i);
-        positionBlue(k);
-
         ctx.beginPath();                     //this creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
         ctx.rect(i-1,405,75,40);                 //in other words, when the car moves, the previous car will be erased from
@@ -465,6 +473,10 @@
 
         speedCarOne(carRed,40,405);
         speedCarTwo(carBlue,40,455);
+
+        positionRed(i);
+        positionBlue(k);
+
         winnerCheck()
     };
 
@@ -490,6 +502,10 @@
 
         speedCarOneTurbo(carRed,40,405);
         speedCarTwoTurbo(carBlue,40,455);
+
+        positionRed(i);
+        positionBlue(k);
+
         winnerCheck()
     };
 
