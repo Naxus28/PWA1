@@ -73,10 +73,21 @@
   function drawCircle(){
 
       //console.log("in the function circle");
-      ctx.beginPath();
+      ctx.beginPath();                          //draws a red circle
       ctx.fillStyle = "#FF0000";
-      ctx.arc(30,240,25,0,Math.PI*2);
+      ctx.strokeStyle = "#CC0000";
+      ctx.arc(30,240,22,0,Math.PI*2);
       ctx.fill();
+      ctx.stroke();
+
+
+      ctx.beginPath();
+      ctx.fillStyle = "#000000";
+      ctx.font = "bold 11px Coronet";
+      ctx.fillText("READY", 11, 244);
+
+
+
       //ctx.stroke();
 
       //console.log("this is the counter in the function"+ counter);
@@ -85,44 +96,66 @@
   }
 
     function drawCircleYellow(){
-         console.log("in the if");
-          ctx.beginPath();
-          ctx.fillStyle = "#FFFF33";
-          ctx.arc(30,300,25,0,Math.PI*2);
-          ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFF00";
+        ctx.strokeStyle = "#FFCC00";
+        ctx.arc(30,300,25,0,Math.PI*2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#000000";
+        ctx.font = "bold 17px Coronet";
+        ctx.fillText("SET", 14, 305);
 
 
         ctx.beginPath();                 //this will erase the previous circle - or fill it with white color
         ctx.fillStyle = "#FFFFFF";
-        ctx.arc(30,240,26,0,Math.PI*2);   // I increased the radius from 25 to 26 to make sure the circle will be completely
-        ctx.fill();                       //covered with white color. If I use radius=25 the outline of the circle still shows (why?? no idea)
+        ctx.arc(30,240,25,0,Math.PI*2);   // I increased the radius from 23 to 25 to make sure the circle will be completely
+        ctx.fill();                       //covered with white color. If I use radius=23 the outline of the circle still shows (why?? no idea)
 
           //console.log("this is the counter in the if "+ counter);
 
           setTimeout( drawCircleGreen, 2000);
     }
 
-     // }
 
-//     if(counter == 2){
 
     function drawCircleGreen(){
           //console.log("this is the counter in the else if "+ counter);
           //console.log("in the else if");
 
-          ctx.beginPath();
-          ctx.fillStyle = "#33CC00";
-          ctx.arc(30,360,25,0,Math.PI*2);
-          ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle = "#33CC00";
+        ctx.strokeStyle = "#009900";
+        ctx.arc(30,360,27,0,Math.PI*2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#000000";
+        ctx.font = "bold 23px Coronet";
+        ctx.fillText("GO!", 10, 368);
+
 
         ctx.beginPath();                  //this will erase the previous circle - or fill it with white color
         ctx.fillStyle = "#FFFFFF";
-        ctx.arc(30,300,26,0,Math.PI*2);
-        ctx.fill()
+        ctx.arc(30,300,28,0,Math.PI*2);
+        ctx.fill();
 
     }
-     // }
 
+      function eraseGreenCircle(){
+          ctx.beginPath();                  //this will erase the previous circle - or fill it with white color
+          ctx.fillStyle = "#FFFFFF";
+          ctx.arc(30,360,30,0,Math.PI*2);
+          ctx.fill();
+
+          setTimeout(eraseGreenCircle, 4000);
+      }
+
+    eraseGreenCircle();
 
 
 
@@ -147,8 +180,8 @@
      function title(){
 
          ctx.beginPath();
-         var fill=ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
-         console.log("this is fill "+ fill);
+         ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
+         //console.log("this is fill "+ fill);
          ctx.font = "bold 75px Coronet";     //size of the font and font type
          ctx.fillText("SUPER RACE 2013", 280, 65);
 
