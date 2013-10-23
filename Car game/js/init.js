@@ -36,14 +36,14 @@
         }
     })();
 
-
+   //prints out the trophy to the canvas when the winner function is called for the red car - see winner function down below
     function showTrophyRed(){
         var trophy = new Image();
         trophy.src = "http://cdn3.sbnation.com/imported_assets/1719611/trophy1_medium.gif";
         ctx.drawImage(trophy,290,120,180,230);
     }
 
-
+    //prints out the trophy to the canvas when the winner function is called for the blue car - see winner function down below
     function showTrophyBlue(){
         var trophy = new Image();
         trophy.src = "http://cdn3.sbnation.com/imported_assets/1719611/trophy1_medium.gif";
@@ -77,7 +77,7 @@
         ctx.fill();
 
         blueCar.src = "http://www.partypro.com/mm_PARTYPRO_/Images/ADV630.JPG";
-        ctx.drawImage(blueCar,250,150,400,250);
+        ctx.drawImage(blueCar,250,110,400,250);
         showTrophyBlue();
         }
 
@@ -121,7 +121,7 @@
     })();
 
 
-//the 3 functions below add the "lights" to the canvas (a red circle, a yellow circle, and a green circle).
+//the 3 functions below add the "lights" to the canvas and texts inside the lights (a red circle, a yellow circle, and a green circle).
 
   function drawCircle(){
 
@@ -129,7 +129,7 @@
       ctx.beginPath();                          //draws a red circle
       ctx.fillStyle = "#FF0000";
       ctx.strokeStyle = "#CC0000";
-      ctx.arc(30,240,22,0,Math.PI*2);
+      ctx.arc(30,180,22,0,Math.PI*2);
       ctx.fill();
       ctx.stroke();
 
@@ -137,7 +137,7 @@
       ctx.beginPath();                         //puts text in the circle
       ctx.fillStyle = "#000000";
       ctx.font = "bold 11px Coronet";
-      ctx.fillText("READY", 11, 244);
+      ctx.fillText("READY", 11, 184);
 
       setTimeout(drawCircleYellow, 2000);      //this will call the next "light"(yellow - function bellow) after the set time - 2 secs
   }
@@ -147,19 +147,19 @@
         ctx.beginPath();
         ctx.fillStyle = "#FFFF00";
         ctx.strokeStyle = "#FFCC00";
-        ctx.arc(30,300,25,0,Math.PI*2);
+        ctx.arc(30,240,25,0,Math.PI*2);
         ctx.fill();
         ctx.stroke();
 
         ctx.beginPath();
         ctx.fillStyle = "#000000";
         ctx.font = "bold 17px Coronet";
-        ctx.fillText("SET", 14, 305);
+        ctx.fillText("SET", 14, 245);
 
 
         ctx.beginPath();                 //this will erase the previous circle - (fill it with white color)
         ctx.fillStyle = "#FFFFFF";
-        ctx.arc(30,240,25,0,Math.PI*2);   // I increased the radius from 23 to 25 to make sure the circle will be completely
+        ctx.arc(30,180,25,0,Math.PI*2);   // I increased the radius from 23 to 25 to make sure the circle will be completely
         ctx.fill();                       //covered with white color. If I use radius=23 the outline of the circle still shows (why?? no idea)
 
           //console.log("this is the counter in the if "+ counter);
@@ -174,19 +174,19 @@
         ctx.beginPath();
         ctx.fillStyle = "#33CC00";
         ctx.strokeStyle = "#009900";
-        ctx.arc(30,360,27,0,Math.PI*2);
+        ctx.arc(30,300,27,0,Math.PI*2);
         ctx.fill();
         ctx.stroke();
 
         ctx.beginPath();                            //puts text in the circle
         ctx.fillStyle = "#000000";
         ctx.font = "bold 23px Coronet";
-        ctx.fillText("GO!", 10, 368);
+        ctx.fillText("GO!", 10, 308);
 
 
         ctx.beginPath();                  //this will erase the previous circle - (fill it with white color)
         ctx.fillStyle = "#FFFFFF";
-        ctx.arc(30,300,28,0,Math.PI*2);
+        ctx.arc(30,240,28,0,Math.PI*2);
         ctx.fill();
 
     }
@@ -194,7 +194,7 @@
       function eraseGreenCircle(){
           ctx.beginPath();                  //this will erase the previous circle - (fill it with white color)
           ctx.fillStyle = "#FFFFFF";
-          ctx.arc(30,360,30,0,Math.PI*2);
+          ctx.arc(30,300,30,0,Math.PI*2);
           ctx.fill();
 
           setTimeout(eraseGreenCircle, 4000);
@@ -279,9 +279,9 @@
 
         ctx.lineWidth=thicknessParallelLines;
         ctx.moveTo(0,400);     //solid upper track line
-        ctx.lineTo(1200,400);  //solid lower track line
+        ctx.lineTo(1200,400);  //solid upper track line
 
-        ctx.moveTo(0,500);
+        ctx.moveTo(0,500);     //solid lower track line
         ctx.lineTo(1200,500);
 
         ctx.moveTo(0,450);
@@ -316,17 +316,32 @@
 
 
     function speedCarOne(car,rangeOfSpeed,y){
-        j = Math.random()*rangeOfSpeed+5;
+        j = ~~(Math.random()*rangeOfSpeed+5);
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
         console.log("this is i "+i);
     }
 
     function speedCarOneTurbo(car,rangeOfSpeed,y){
-        j = Math.random()*rangeOfSpeed*5+20;
+        j = ~~(Math.random()*rangeOfSpeed*5+20);
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
         console.log("this is i in the turbo "+i);
+    }
+
+    //will print out to the canvas the position of the red car in pixels. changes every time the button is clicked
+    function positionRed(coordinate){
+
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(14,350,230,40);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#000000";
+        //console.log("this is fill "+ fill);
+        ctx.font = "bold 20px Coronet";     //size of the font and font type
+        ctx.fillText("Red Car traveled "+ coordinate + " px", 15, 380);
     }
 
 
@@ -341,18 +356,33 @@
 
 
     function speedCarTwo(car,rangeOfSpeed,y){
-        l = Math.random()*rangeOfSpeed+5;
+        l = ~~(Math.random()*rangeOfSpeed+5);
         ctx.drawImage(car,l+k,y,75,40);
         k=k+l;
-        console.log("this is k "+ k)
+        console.log("this is k "+ k);
     }
 
 
     function speedCarTwoTurbo(car,rangeOfSpeed,y){
-        l = Math.random()*rangeOfSpeed*5+20;
+        l = ~~(Math.random()*rangeOfSpeed*5+20);
         ctx.drawImage(car,l+k,y,75,40);
         k=k+l;
         console.log("this is k in the turbo "+k);
+    }
+
+    //will print out to the canvas the position of the blue car in pixels. changes every time the button is clicked
+    function positionBlue(coordinate){
+
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(14,520,230,50);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#000000";
+        //console.log("this is fill "+ fill);
+        ctx.font = "bold 20px Coronet";     //size of the font and font type
+        ctx.fillText("Red Car traveled "+ coordinate + " px", 15, 540);
     }
 
 
@@ -415,6 +445,10 @@
 
     buttonOne.onclick = function fast(){
 
+
+        positionRed(i);
+        positionBlue(k);
+
         ctx.beginPath();                     //this creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
         ctx.rect(i-1,405,75,40);                 //in other words, when the car moves, the previous car will be erased from
@@ -436,6 +470,9 @@
 
 
     buttonTurbo.onclick = function turbo(){
+
+        positionRed(i);
+        positionBlue(k);
 
         ctx.beginPath();                     //this creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
