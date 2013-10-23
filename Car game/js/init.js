@@ -69,43 +69,62 @@
 
 
 //this adds a green circle to the canvas
-   var counter = 0;
 
-    console.log("this is the counter "+ counter);
   function drawCircle(){
 
       //console.log("in the function circle");
       ctx.beginPath();
       ctx.fillStyle = "#FF0000";
-      ctx.arc(30,250,20,0,Math.PI*2);
+      ctx.arc(30,240,25,0,Math.PI*2);
       ctx.fill();
       //ctx.stroke();
-      counter++;
-      console.log("this is the counter in the function"+ counter);
 
-      if(counter == 1){
+      //console.log("this is the counter in the function"+ counter);
+
+      setTimeout(drawCircleYellow, 2000);
+  }
+
+    function drawCircleYellow(){
          console.log("in the if");
           ctx.beginPath();
           ctx.fillStyle = "#FFFF33";
-          ctx.arc(30,300,20,0,Math.PI*2);
+          ctx.arc(30,300,25,0,Math.PI*2);
           ctx.fill();
-          counter++;
-          console.log("this is the counter in the if "+ counter);
-      }
 
-     if(counter == 2){
-          console.log("this is the counter in the else if "+ counter);
-          console.log("in the else if");
+
+        ctx.beginPath();                 //this will erase the previous circle - or fill it with white color
+        ctx.fillStyle = "#FFFFFF";
+        ctx.arc(30,240,26,0,Math.PI*2);   // I increased the radius from 25 to 26 to make sure the circle will be completely
+        ctx.fill();                       //covered with white color. If I use radius=25 the outline of the circle still shows (why?? no idea)
+
+          //console.log("this is the counter in the if "+ counter);
+
+          setTimeout( drawCircleGreen, 2000);
+    }
+
+     // }
+
+//     if(counter == 2){
+
+    function drawCircleGreen(){
+          //console.log("this is the counter in the else if "+ counter);
+          //console.log("in the else if");
+
           ctx.beginPath();
           ctx.fillStyle = "#33CC00";
-          ctx.arc(30,350,20,0,Math.PI*2);
+          ctx.arc(30,360,25,0,Math.PI*2);
           ctx.fill();
 
+        ctx.beginPath();                  //this will erase the previous circle - or fill it with white color
+        ctx.fillStyle = "#FFFFFF";
+        ctx.arc(30,300,26,0,Math.PI*2);
+        ctx.fill()
 
-      }
+    }
+     // }
 
-//      setInterval(drawCircle, 16000/6)
-  }
+
+
 
 
 
