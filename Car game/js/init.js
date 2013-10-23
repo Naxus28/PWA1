@@ -292,17 +292,13 @@
 
     function speedCarOne(car,rangeOfSpeed,y){
 
-        ctx.beginPath();                     //this creates a white rectangle that will fill in the position
-        ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
-        ctx.rect(i-1,y,75,40);                 //in other words, when the car moves, the previous car will be erased from
-        ctx.fill();                           //the canvas
 
-        finalLines(2);
-        linesAcrossEnd();                                     //ASK SCOTT; WHY DID I NEED TO PUT -1 IN THE X VARIABLE IN THE CTX.RECT/
+//        finalLines(2);
+//        linesAcrossEnd();                                     //ASK SCOTT; WHY DID I NEED TO PUT -1 IN THE X VARIABLE IN THE CTX.RECT/
                                               //it was leaving a line of he car behind, and the -1 fixed it.
         j = Math.random()*rangeOfSpeed+1;
 
-        ctx.drawImage(car,j+i,y,70,40);
+        ctx.drawImage(car,j+i,y,75,40);
 
         i=i+j;
 
@@ -321,16 +317,11 @@
     var k =0;
 
     function speedCarTwo(car,rangeOfSpeed,y){
-        console.log("in function speed car two");
 
 
-        ctx.beginPath();
-        ctx.fillStyle = "#FFFFFF";
-        ctx.rect(k-1,y,75,40);
-        ctx.fill();
 
-        finalLines(2);
-        linesAcrossEnd();
+//        finalLines(2);
+//        linesAcrossEnd();
 
         l = Math.random()*rangeOfSpeed+1;
 
@@ -354,8 +345,24 @@
 
     buttonOne.onclick = function fast(){
 
+        ctx.beginPath();                     //this creates a white rectangle that will fill in the position
+        ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
+        ctx.rect(i-1,405,75,40);                 //in other words, when the car moves, the previous car will be erased from
+        ctx.fill();                           //the canvas
+
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.rect(k-1,455,75,40);
+        ctx.fill();
+
+
+        finalLines(2);
+        linesAcrossEnd();
+
         speedCarOne(carRed,40,405);
         speedCarTwo(carBlue,40,455);
+
+
         title();
 
       //setInterval(speedCarOne, 1000/100);
