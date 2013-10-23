@@ -173,20 +173,28 @@
 
 
 
-//adds the title of the game  and change colors continuously - figure out how - NOT WORKING YET
-     function title(){
+//adds the title of the game  and change colors continuously
+
+    ctx.beginPath();
+    ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
+    //console.log("this is fill "+ fill);
+    ctx.font = "bold 75px Coronet";     //size of the font and font type
+    ctx.fillText("SUPER RACE 2013", 280, 65);
+
+
+     function title(titleName){
 
          ctx.beginPath();
          ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
          //console.log("this is fill "+ fill);
          ctx.font = "bold 75px Coronet";     //size of the font and font type
-         ctx.fillText("SUPER RACE 2013", 280, 65);
+         ctx.fillText(titleName, 280, 65);
 
          //setInterval(title, 16000/3)
 
     }
 
-    title();
+    //title("SUPER RACE 2013");
 
    //function that draws the vertical lines at the end of the track - takes the line width as argument
     function finalLines(verticalLines){
@@ -313,7 +321,7 @@
     //are generated randomly, the red car can still win.
 
 
-   var l;
+    var l;
     var k =0;
 
     function speedCarTwo(car,rangeOfSpeed,y){
@@ -342,6 +350,44 @@
 //        drawCircle()
 //    };
 
+    function titleCheck(){
+        if(i+j<1080 && k+l<1080){
+            title("SUPER RACE 2013");
+
+        }
+
+        else  if(i+j>1080 && k+l>1080){
+            ctx.beginPath();
+            ctx.fillStyle = "#FFFFFF";
+            ctx.rect(280,10,700,70);
+            ctx.fill();
+
+            title("THAT IS A TIE!");
+
+        }
+
+        else if(k+l>1080){
+            ctx.beginPath();
+            ctx.fillStyle = "#FFFFFF";
+            ctx.rect(280,10,700,70);
+            ctx.fill();
+
+            title("BLUE CAR WINS!!");
+        }
+
+
+        else if(i+j>1080){
+
+            ctx.beginPath();
+            ctx.fillStyle = "#FFFFFF";
+            ctx.rect(280,10,700,70);
+            ctx.fill();
+
+            title("RED CAR WINS!!");
+
+        }
+    }
+
 
     buttonOne.onclick = function fast(){
 
@@ -361,13 +407,14 @@
 
         speedCarOne(carRed,40,405);
         speedCarTwo(carBlue,40,455);
+        titleCheck()
+    };
 
 
-        title();
 
       //setInterval(speedCarOne, 1000/100);
 
-    };
+
 
 
     buttonTwo.onclick = function newRace(){
