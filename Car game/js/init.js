@@ -10,6 +10,7 @@
 
 
 (function(){
+
     var canvas = document.createElement("canvas");
     document.body.appendChild(canvas);
 
@@ -23,8 +24,13 @@
     var buttonTurbo = document.querySelector("#btn4");
 
 
+    var nameRed = prompt("Player one (red car), please input your name").toUpperCase();
+    var nameBlue = prompt("Player two (blue car), please input your name").toUpperCase();
 
- //this adds the crowd to the canvas
+
+
+
+    //this adds the crowd to the canvas
     (function(){
         var crowd = new Image();
         crowd.src = "http://t1.ftcdn.net/jpg/00/15/10/04/400_F_15100429_PPGCwqoXPAocRlzU6Jdif1Nw6Ig1dQ7s.jpg";
@@ -334,7 +340,7 @@
     ctx.beginPath();
     ctx.fillStyle = "#000000";
     ctx.font = "bold 20px Coronet";     //size of the font and font type
-    ctx.fillText("Red Car traveled 0 px", 15, 380);
+    ctx.fillText(nameRed+" traveled 0 px", 15, 380);
 
     function positionRed(coordinate){
 
@@ -347,7 +353,7 @@
         ctx.fillStyle = "#000000";
         //console.log("this is fill "+ fill);
         ctx.font = "bold 20px Coronet";     //size of the font and font type
-        ctx.fillText("Red Car traveled "+ coordinate + " px", 15, 380);
+        ctx.fillText(nameRed + " traveled "+ coordinate + " px", 15, 380);
     }
 
 
@@ -381,7 +387,7 @@
     ctx.beginPath();
     ctx.fillStyle = "#000000";
     ctx.font = "bold 20px Coronet";     //size of the font and font type
-    ctx.fillText("Blue Car traveled 0 px", 15, 540);
+    ctx.fillText(nameBlue+" traveled 0 px", 15, 540);
 
     function positionBlue(coordinate){
 
@@ -394,7 +400,7 @@
         ctx.fillStyle = "#000000";
         //console.log("this is fill "+ fill);
         ctx.font = "bold 20px Coronet";     //size of the font and font type
-        ctx.fillText("Blue Car traveled "+ coordinate + " px", 15, 540);
+        ctx.fillText(nameBlue+" traveled "+ coordinate + " px", 15, 540);
     }
 
 
@@ -438,7 +444,7 @@
             ctx.rect(270,10,700,70);
             ctx.fill();
 
-            title("RED CAR WINS!!", "ff"+""+0+""+0+""+0+""+0);
+            title(nameRed+" WINS !!", "ff"+""+0+""+0+""+0+""+0);
 
             imageRedCarWin();
             counterRed++;
@@ -450,7 +456,7 @@
             ctx.rect(270,10,700,70);
             ctx.fill();
 
-            title("BLUE CAR WINS!!", 0+""+0+""+0+""+0+"ff");
+            title(nameBlue +" WINS !!", 0+""+0+""+0+""+0+"ff");
 
             imageBlueCarWin();
             counterBlue++;
