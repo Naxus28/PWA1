@@ -20,7 +20,7 @@
     var buttonOne = document.querySelector("#btn1");
     var buttonTwo = document.querySelector("#btn2");
     var buttonThree = document.querySelector("#btn3");
-    var  buttonTurbo = document.querySelector("#btn4");
+    var buttonTurbo = document.querySelector("#btn4");
 
 
 
@@ -480,6 +480,8 @@
         winnerCheck()
     };
 
+   //the button call most of the functions. some functions trigger others. attention to order of call here. Very important
+    //to make things work out correctly and print out correctly on the canvas
 
     buttonTurbo.onclick = function turbo(){
 
