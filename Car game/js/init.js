@@ -24,8 +24,8 @@
     var buttonTurbo = document.querySelector("#btn4");
 
 
-    var nameRed = prompt("Player one (red car), please input your name").toUpperCase();
-    var nameBlue = prompt("Player two (blue car), please input your name").toUpperCase();
+    var nameRed = prompt("PLAYER ONE (RED CAR), PLEASE INPUT YOUR NAME").toUpperCase();
+    var nameBlue = prompt("PLAYER TWO (BLUE CAR), PLEASE INPUT YOUR NAME").toUpperCase();
 
 
 
