@@ -23,6 +23,32 @@ console.log("started");
  constructor will create each student object, you will then need to programmatically insert the student object into the
  student's array. An example of your call to the constuctor can be as follows:
  new Student('James Bond', '123 Test Dr', 'Orlando', 'Florida', [2.5, 4.0, 2.2], new Date());
+
+ DONE - (NEW for the final) Just like the Mid Term, you will first populate the array of students with at least 2 objects of
+ information. Each student object will need to be created using the constructor.
+
+ DONE - (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines.
+ 1. name
+ 2. address
+ 3. GPA
+ 4. date
+ Example:
+ Name: James Bond
+ Address: 123 Test Dr, Orlando, Florida
+ GPA: [2.5, 3.5, 4.0]
+ Date: 05/02/13
+
+ DONE - (NEW for the final) Add a new object (using a constructor) to the array of student objects above. Use the same technique
+ used above to add the new object.
+
+ DONE-(Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines. This should display with the new
+ object that was just added directly above. Use the same output display as the previous console.log
+
+ DONE - There should not be any duplicate code in the main.js or the studentObjects.js file. If there is, you will need to refractor
+ the code by creating a function for the duplicate code and then call the function when it is needed.
+
+ DONE - All global variables should be located at the very top of the program.
+ DONE -  All function calls should be at the bottom of the program.
  */
 
 //VARIABLES AT THE TOP
@@ -31,15 +57,12 @@ console.log("started");
  var year;
  var months;
 
- var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3," "+3," "+3],dates());
- var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3," "+2.7," "+3],dates());
- var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.0," "+2.7," "+3.3],dates());
+ var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3,3,3],dates());
+ var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3,2.7,3],dates());
+ var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.0,2.7,3.3],dates());
 
  var arrayStudents =[];
  arrayStudents.push(newStudent,oldStudent,youngStudent);
-
-
-
 
 console.log( );
 console.log("============================");
@@ -69,7 +92,7 @@ function Student(n,as,ac,ast,grades,date){
     this.student.address.street = as;
     this.student.address.city = ac;
     this.student.address.state = ast;
-    this.student.GPA = [grades];
+    this.student.GPA = grades;
     this.student.date = date;
 
 
@@ -79,6 +102,11 @@ function Student(n,as,ac,ast,grades,date){
     //arrayStudents.GPA.push(gradeOne,gradeTwo,gradeThree);
 
 }
+
+console.log("This is the GPA of student 0: "+newStudent.student.GPA[0]);
+console.log("This is the GPA of student 0: "+newStudent.student.GPA[1]);
+console.log("This is the GPA of student 0: "+newStudent.student.GPA[2]);
+
 
 function dates(){
     var date = new Date();
@@ -97,44 +125,37 @@ function dates(){
  }
 
 
+//PROTOTYPE
+Student.prototype.avgGpa = function(arrayNumber){
 
+    var result = 0;
+    for(var i=0; i<arrayNumber.student.GPA.length; i++){
+
+        console.log("object length: " + arrayNumber.student.GPA.length);
+
+        result += arrayNumber.student.GPA[i];
+
+    }
+    var gpaAverage = result/arrayNumber.student.GPA.length;
+    return  "This is the GPA avg: " + gpaAverage.toFixed(2)
+
+};
+newStudent.avgGpa(arrayStudents[0]);
+console.log(newStudent.avgGpa(arrayStudents[0]));
+
+
+
+//console.log("This is the GPA: "+ arrayStudents[0].student.GPA.length);
 
 
 
 /*
 
-
- DONE - (NEW for the final) Just like the Mid Term, you will first populate the array of students with at least 2 objects of
- information. Each student object will need to be created using the constructor.
-
-
- DONE - (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines.
- 1. name
- 2. address
- 3. GPA
- 4. date
- Example:
- Name: James Bond
- Address: 123 Test Dr, Orlando, Florida
- GPA: [2.5, 3.5, 4.0]
- Date: 05/02/13
-
-
-
- DONE - (NEW for the final) Add a new object (using a constructor) to the array of student objects above. Use the same technique
- used above to add the new object.
-
-
- DONE-(Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines. This should display with the new
- object that was just added directly above. Use the same output display as the previous console.log
-
-
  (NEW for the final) Before displaying the “Average GPA” using the innerHTML from the Mid Term, a prototype method
  will be used to calculate each student’s Average GPA and return the results.
- There should not be any duplicate code in the main.js or the studentObjects.js file. If there is, you will need to refractor
- the code by creating a function for the duplicate code and then call the function when it is needed.
- All global variables should be located at the very top of the program.
- All function calls should be at the bottom of the program.
+
+
+
  Make sure to put comments throughout your code.
  Extra Credit:
  Create a function that will validate the “basic” GPA format ‘#.##’. This function will need to run before the first console.log
