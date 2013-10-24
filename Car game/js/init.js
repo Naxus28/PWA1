@@ -63,7 +63,7 @@
         ctx.fill();
 
         redCar.src = "http://ecx.images-amazon.com/images/I/412Z4jq9dyL._SL500_AA500_.jpg";
-        ctx.drawImage(redCar,500,130,400,250);
+        ctx.drawImage(redCar,500,100,400,250);
         showTrophyRed();
         }
 
@@ -82,6 +82,18 @@
         showTrophyBlue();
         }
 
+//this adds the blue car to the track
+    var carBlue = new Image();
+    (function(){
+        carBlue.src = "http://www.clker.com/cliparts/g/C/3/6/V/C/light-blue-car-top-view-md.png";
+        carBlue.addEventListener("load", onLoad);
+
+        function onLoad(e){
+            ctx.drawImage(carBlue,0,455,70,40);
+
+        }
+    })();
+
 
  //this adds the red car to the track
     var carRed = new Image();
@@ -91,20 +103,6 @@
 
         function onLoad(e){
             ctx.drawImage(carRed,0,405,70,40);
-
-        }
-    })();
-
-
-
-//this adds the blue car to the track
-    var carBlue = new Image();
-    (function(){
-        carBlue.src = "http://www.clker.com/cliparts/g/C/3/6/V/C/light-blue-car-top-view-md.png";
-        carBlue.addEventListener("load", onLoad);
-
-        function onLoad(e){
-            ctx.drawImage(carBlue,0,455,70,40);
 
         }
     })();
@@ -295,9 +293,9 @@
     trackLines(4);
 
 
-   //this function below makes the red car move - notice there are 2 variables bc I am generating a random number for the
+   //the function below makes the red car move - notice there are 2 variables bc I am generating a random number for the
    //position of the car, which means that if I have one variable I will not be able to hold the value
-    //of the previous position. For instance: the car first moves 10 px. we need to hold this value so the next time
+    //of the previous position. For instance: the car first moves 10 px. we need to hold this value so next time
     //the car's starting point is 10. Then we "accelerate it" by adding a random number to it. then we need to hold that second value bc this will be the
     //next starting position. Then we add this value to a random number and the car move forward. And so on.
     //var i will hold the value generated and will always be the starting point. Var j will increase the position
@@ -331,7 +329,7 @@
 
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
-        ctx.rect(14,350,230,40);
+        ctx.rect(14,350,1100,40);
         ctx.fill();
 
         ctx.beginPath();
@@ -370,10 +368,9 @@
     ctx.fillText(nameBlue+" traveled 0 px", 15, 540);
 
     function positionBlue(coordinate){
-
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
-        ctx.rect(14,520,230,50);
+        ctx.rect(14,520,1000,50);
         ctx.fill();
 
         ctx.beginPath();
@@ -387,13 +384,13 @@
     var trackLimit=1076;
     var counterRed=0;                               //these counters are necessary to guarantee that
     var counterBlue=0;                              //when a car wins, the other may pass in front of it
-                                                    //after the final line but the cars that came second will not
+                                                    //after the final line but the car that came second will not
                                                     //become the winner (the title will not change).
                                                     //There are 3 conditions for a car to be winner:
-                                                    //cross the final line, be ahead of the other, and
+                                                    //cross the final line, be ahead of the other car, and
                                                     //that the counter of the other car is not >1.
-                                                    //the counter only becomes greater than one when the car
-                                                     //crosses the line first.
+                                                    //the counter only becomes greater than 1 when the car
+                                                    //crosses the line before the other car.
 
 
 
@@ -443,10 +440,10 @@
 
     buttonOne.onclick = function speed(){
 
-        ctx.beginPath();                     //this creates a white rectangle that will fill in the position
+        ctx.beginPath();                     //This creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
-        ctx.rect(i-1,405,75,40);                 //in other words, when the car moves, the previous car will be erased from
-        ctx.fill();                           //the canvas
+        ctx.rect(i-1,405,75,40);             //In other words, when the car moves, the previous car will be erased from
+        ctx.fill();                          //the canvas
 
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
@@ -465,7 +462,7 @@
         winnerCheck()
     };
 
-   //the button call most of the functions. some functions trigger others. attention to order of call here. Very important
+   //The button below calls most of the functions. Some functions trigger others. Attention to order of calls here. Very important
     //to make things work out correctly and print out correctly on the canvas
 
     buttonTurbo.onclick = function turbo(){
@@ -473,10 +470,10 @@
         positionRed(i);
         positionBlue(k);
 
-        ctx.beginPath();                     //this creates a white rectangle that will fill in the position
+        ctx.beginPath();                     //This creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
-        ctx.rect(i-1,405,85,40);                 //in other words, when the car moves, the previous car will be erased from
-        ctx.fill();                           //the canvas
+        ctx.rect(i-1,405,85,40);             //In other words, when the car moves, the previous car will be erased from
+        ctx.fill();                          //the canvas
 
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
