@@ -58,8 +58,8 @@ console.log("started");
  var months;
 
  var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3,3,3],dates());
- var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3,2.7,3],dates());
- var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.0,2.7,3.3],dates());
+ var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.2,2.4,3],dates());
+ var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.5,2.6,3.3],dates());
 
  var arrayStudents =[];
  arrayStudents.push(newStudent,oldStudent,youngStudent);
@@ -137,11 +137,13 @@ Student.prototype.avgGpa = function(arrayNumber){
 
     }
     var gpaAverage = result/arrayNumber.student.GPA.length;
-    return  "This is the GPA avg: " + gpaAverage.toFixed(2)
+    return  gpaAverage.toFixed(2)
 
 };
-newStudent.avgGpa(arrayStudents[0]);
-console.log(newStudent.avgGpa(arrayStudents[0]));
+//newStudent.avgGpa(arrayStudents[0]);
+console.log("This is "+arrayStudents[0].student.name+"'s"+ " GPA avg "+ newStudent.avgGpa(arrayStudents[0]));
+console.log("This is "+arrayStudents[1].student.name+"'s"+ " GPA avg "+ newStudent.avgGpa(arrayStudents[1]));
+console.log("This is "+arrayStudents[2].student.name+"'s"+ " GPA avg "+ newStudent.avgGpa(arrayStudents[2]));
 
 
 
