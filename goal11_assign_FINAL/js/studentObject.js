@@ -85,41 +85,6 @@ students(arrayStudents[2]);
 console.log("============================");
 
 
-//FUNCTIONS AT THE BOTTOM
-function Student(n,as,ac,ast,grades,date){
-
-    this.student = {};
-    this.student.name = n;
-    this.student.address={};
-    this.student.address.street = as;
-    this.student.address.city = ac;
-    this.student.address.state = ast;
-    this.student.GPA = grades;
-    this.student.date = date;
-}
-
-console.log("This is the GPA of student 0: "+newStudent.student.GPA[0]);
-console.log("This is the GPA of student 0: "+newStudent.student.GPA[1]);
-console.log("This is the GPA of student 0: "+newStudent.student.GPA[2]);
-
-
-function dates(){
-    var date = new Date();
-    month = date.getMonth() + 1; // it is 0 based index so we have to add one
-    nDate = date.getDate();//  day of the month // not 0 based//actual day of the month
-    year = date.getFullYear();
-    months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];
-    return months[month] + "/" + nDate + "/" + year;
-}
-
- function students(studentInstance){
-     console.log("This is the student's name: " +studentInstance.student.name);
-     console.log("This is "+studentInstance.student.name+ "'s address: "+ studentInstance.student.address.street+", "+studentInstance.student.address.city+", "+studentInstance.student.address.state);
-     console.log("This is "+studentInstance.student.name+ "'s GPA: "+ studentInstance.student.GPA);
-     console.log("This is the date: "+ studentInstance.student.date);
- }
-
-
 //PROTOTYPE
 Student.prototype.avgGpa = function(arrayNumber){
 
@@ -163,37 +128,56 @@ var i = 0;
 function displayData(){
 
     if(i<arrayStudents.length-1){
-
         document.querySelector("#name").innerHTML ="Name: "+ arrayStudents[i+1].student.name;
         document.querySelector("#address").innerHTML =  "Address: "+ arrayStudents[i+1].student.address.street +", "+ arrayStudents[i+1].student.address.city + ", " + arrayStudents[i+1].student.address.state;
         document.querySelector("#gpa").innerHTML = "GPA: "+ arrayStudents[i+1].student.GPA[i+1]+", "+arrayStudents[i+1].student.GPA[i+1]+ ", "+ arrayStudents[i+1].student.GPA[i+1] ;
         document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[i+1]);
         document.querySelector("#date").innerHTML= "Date: " +arrayStudents[i+1].student.date;
-
-
         i++
 
-
-    }     else {
-
-
+    } else {
         button.innerHTML = "DONE!!!";
-
         button.removeEventListener("click", onClick);
-
-
         }
-
-
 }
 
-
+//FUNCTIONS AT THE BOTTOM
 function onClick() {
-
     displayData();
 }
 
+function Student(n,as,ac,ast,grades,date){
 
+    this.student = {};
+    this.student.name = n;
+    this.student.address={};
+    this.student.address.street = as;
+    this.student.address.city = ac;
+    this.student.address.state = ast;
+    this.student.GPA = grades;
+    this.student.date = date;
+}
+
+console.log("This is the GPA of student 0: "+newStudent.student.GPA[0]);
+console.log("This is the GPA of student 0: "+newStudent.student.GPA[1]);
+console.log("This is the GPA of student 0: "+newStudent.student.GPA[2]);
+
+
+function dates(){
+    var date = new Date();
+    month = date.getMonth() + 1; // it is 0 based index so we have to add one
+    nDate = date.getDate();//  day of the month // not 0 based//actual day of the month
+    year = date.getFullYear();
+    months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];
+    return months[month] + "/" + nDate + "/" + year;
+}
+
+function students(studentInstance){
+    console.log("This is the student's name: " +studentInstance.student.name);
+    console.log("This is "+studentInstance.student.name+ "'s address: "+ studentInstance.student.address.street+", "+studentInstance.student.address.city+", "+studentInstance.student.address.state);
+    console.log("This is "+studentInstance.student.name+ "'s GPA: "+ studentInstance.student.GPA);
+    console.log("This is the date: "+ studentInstance.student.date);
+}
 
 
 //console.log("This is the GPA: "+ arrayStudents[0].student.GPA.length);
