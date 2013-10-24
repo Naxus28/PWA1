@@ -25,31 +25,60 @@ console.log("started");
  new Student('James Bond', '123 Test Dr', 'Orlando', 'Florida', [2.5, 4.0, 2.2], new Date());
  */
 
+//VARIABLES AT THE TOP
  var month;
  var nDate;
  var year;
  var months;
 
+ var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3," "+3," "+3],dates());
+ var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3," "+2.7," "+3],dates());
+ var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.0," "+2.7," "+3.3],dates());
+
  var arrayStudents =[];
+ arrayStudents.push(newStudent,oldStudent,youngStudent);
 
- function Student(n,as,ac,ast,grades,date){
 
- this.student = {};
- this.student.name = n;
- this.student.address={};
- this.student.address.street = as;
- this.student.address.city = ac;
- this.student.address.state = ast;
- this.student.GPA = [grades];
- this.student.date = date;
+
+
+console.log( );
+console.log("============================");
+console.log("THIS IS THE FIRST STUDENT");
+students(arrayStudents[0]);
+console.log("============================");
+console.log( );
+
+console.log("============================");
+console.log("THIS IS THE SECOND STUDENT");
+students(arrayStudents[1]);
+console.log("============================");
+
+console.log( );
+console.log("============================");
+console.log("THIS IS THE THIRD STUDENT");
+students(arrayStudents[2]);
+console.log("============================");
+
+
+//FUNCTIONS AT THE BOTTOM
+function Student(n,as,ac,ast,grades,date){
+
+    this.student = {};
+    this.student.name = n;
+    this.student.address={};
+    this.student.address.street = as;
+    this.student.address.city = ac;
+    this.student.address.state = ast;
+    this.student.GPA = [grades];
+    this.student.date = date;
 
 
 // this.GPA[i] = gradeOne;
 // this.GPA[j] = gradeTwo;
 // this.GPA[k] = gradeThree;
- //arrayStudents.GPA.push(gradeOne,gradeTwo,gradeThree);
+    //arrayStudents.GPA.push(gradeOne,gradeTwo,gradeThree);
 
- }
+}
 
 function dates(){
     var date = new Date();
@@ -60,12 +89,6 @@ function dates(){
     return months[month] + "/" + nDate + "/" + year;
 }
 
-var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3," "+3," "+3],dates());
-var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3," "+2.7," "+3],dates());
-var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.0," "+2.7," "+3.3],dates());
-
-arrayStudents.push(newStudent,oldStudent,youngStudent);
-
  function students(studentInstance){
      console.log("This is the student's name: " +studentInstance.student.name);
      console.log("This is "+studentInstance.student.name+ "'s address: "+ studentInstance.student.address.street+", "+studentInstance.student.address.city+", "+studentInstance.student.address.state);
@@ -73,23 +96,6 @@ arrayStudents.push(newStudent,oldStudent,youngStudent);
      console.log("This is the date: "+ studentInstance.student.date);
  }
 
- console.log( );
- console.log("============================");
- console.log("THIS IS THE FIRST STUDENT");
- students(arrayStudents[0]);
- console.log("============================");
- console.log( );
-
- console.log("============================");
- console.log("THIS IS THE SECOND STUDENT");
- students(arrayStudents[1]);
- console.log("============================");
-
- console.log( );
- console.log("============================");
- console.log("THIS IS THE THIRD STUDENT");
- students(arrayStudents[2]);
- console.log("============================");
 
 
 
@@ -119,7 +125,7 @@ arrayStudents.push(newStudent,oldStudent,youngStudent);
  used above to add the new object.
 
 
- (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines. This should display with the new
+ DONE-(Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines. This should display with the new
  object that was just added directly above. Use the same output display as the previous console.log
 
 
