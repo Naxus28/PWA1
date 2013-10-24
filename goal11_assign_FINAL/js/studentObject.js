@@ -82,8 +82,9 @@ console.log("started");
     document.querySelector("#name").innerHTML ="Name: "+ arrayStudents[0].student.name;
     document.querySelector("#address").innerHTML =  "Address: "+ arrayStudents[0].student.address.street +", "+ arrayStudents[0].student.address.city + ", " + arrayStudents[0].student.address.state;
     document.querySelector("#gpa").innerHTML = "GPA: "+ arrayStudents[0].student.GPA[0]+", "+arrayStudents[0].student.GPA[0]+ ", "+ arrayStudents[0].student.GPA[0] ;
-    document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[0]);
     document.querySelector("#date").innerHTML= "Date: " +arrayStudents[0].student.date;
+    document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[0]);
+
 
     button.addEventListener("click", onClick);
 
@@ -95,8 +96,8 @@ console.log("started");
             document.querySelector("#name").innerHTML ="Name: "+ arrayStudents[i+1].student.name;
             document.querySelector("#address").innerHTML =  "Address: "+ arrayStudents[i+1].student.address.street +", "+ arrayStudents[i+1].student.address.city + ", " + arrayStudents[i+1].student.address.state;
             document.querySelector("#gpa").innerHTML = "GPA: "+ arrayStudents[i+1].student.GPA[0]+", "+arrayStudents[i+1].student.GPA[1]+ ", "+ arrayStudents[i+1].student.GPA[2] ;
-            document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[i+1]);
             document.querySelector("#date").innerHTML= "Date: " +arrayStudents[i+1].student.date;
+            document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[i+1]);
             i++
 
         } else {
@@ -120,11 +121,6 @@ console.log("started");
         this.student.GPA = grades;
         this.student.date = date;
     }
-
-    console.log("This is the GPA of student 0: "+newStudent.student.GPA[0]);
-    console.log("This is the GPA of student 0: "+newStudent.student.GPA[1]);
-    console.log("This is the GPA of student 0: "+newStudent.student.GPA[2]);
-
 
     function dates(){
         var date = new Date();
