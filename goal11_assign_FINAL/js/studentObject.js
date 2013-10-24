@@ -64,6 +64,8 @@ console.log("started");
  var arrayStudents =[];
  arrayStudents.push(newStudent,oldStudent,youngStudent);
 
+//console.log("array students length: "+arrayStudents.length);
+
 console.log( );
 console.log("============================");
 console.log("THIS IS THE FIRST STUDENT");
@@ -94,13 +96,6 @@ function Student(n,as,ac,ast,grades,date){
     this.student.address.state = ast;
     this.student.GPA = grades;
     this.student.date = date;
-
-
-// this.GPA[i] = gradeOne;
-// this.GPA[j] = gradeTwo;
-// this.GPA[k] = gradeThree;
-    //arrayStudents.GPA.push(gradeOne,gradeTwo,gradeThree);
-
 }
 
 console.log("This is the GPA of student 0: "+newStudent.student.GPA[0]);
@@ -131,7 +126,7 @@ Student.prototype.avgGpa = function(arrayNumber){
     var result = 0;
     for(var i=0; i<arrayNumber.student.GPA.length; i++){
 
-        console.log("object length: " + arrayNumber.student.GPA.length);
+        //console.log("object length: " + arrayNumber.student.GPA.length);
 
         result += arrayNumber.student.GPA[i];
 
@@ -140,10 +135,64 @@ Student.prototype.avgGpa = function(arrayNumber){
     return  gpaAverage.toFixed(2)
 
 };
-//newStudent.avgGpa(arrayStudents[0]);
-console.log("This is "+arrayStudents[0].student.name+"'s"+ " GPA avg "+ newStudent.avgGpa(arrayStudents[0]));
-console.log("This is "+arrayStudents[1].student.name+"'s"+ " GPA avg "+ newStudent.avgGpa(arrayStudents[1]));
-console.log("This is "+arrayStudents[2].student.name+"'s"+ " GPA avg "+ newStudent.avgGpa(arrayStudents[2]));
+
+//THIS ARE THE AVG GPAs OF ALL STUDENTS
+console.log( );
+console.log("===============================");
+console.log("THESE ARE THE AVG GPAs OF ALL STUDENTS");
+console.log("This is "+arrayStudents[0].student.name+"'s"+ " GPA av: "+ newStudent.avgGpa(arrayStudents[0]));
+console.log("This is "+arrayStudents[1].student.name+"'s"+ " GPA avg: "+ newStudent.avgGpa(arrayStudents[1]));
+console.log("This is "+arrayStudents[2].student.name+"'s"+ " GPA avg: "+ newStudent.avgGpa(arrayStudents[2]));
+console.log("===============================");
+
+
+//BELOW IS THE DISPLAY SECTION
+var button = document.querySelector(".buttonred");
+
+
+
+document.querySelector("#name").innerHTML ="Name: "+ arrayStudents[0].student.name;
+document.querySelector("#address").innerHTML =  "Address: "+ arrayStudents[0].student.address.street +", "+ arrayStudents[0].student.address.city + ", " + arrayStudents[0].student.address.state;
+document.querySelector("#gpa").innerHTML = "GPA: "+ arrayStudents[0].student.GPA[0]+", "+arrayStudents[0].student.GPA[0]+ ", "+ arrayStudents[0].student.GPA[0] ;
+document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[0]);
+document.querySelector("#date").innerHTML= "Date: " +arrayStudents[0].student.date;
+
+button.addEventListener("click", onClick);
+
+var i = 0;
+function displayData(){
+
+    if(i<arrayStudents.length-1){
+
+        document.querySelector("#name").innerHTML ="Name: "+ arrayStudents[i+1].student.name;
+        document.querySelector("#address").innerHTML =  "Address: "+ arrayStudents[i+1].student.address.street +", "+ arrayStudents[i+1].student.address.city + ", " + arrayStudents[i+1].student.address.state;
+        document.querySelector("#gpa").innerHTML = "GPA: "+ arrayStudents[i+1].student.GPA[i+1]+", "+arrayStudents[i+1].student.GPA[i+1]+ ", "+ arrayStudents[i+1].student.GPA[i+1] ;
+        document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[i+1]);
+        document.querySelector("#date").innerHTML= "Date: " +arrayStudents[i+1].student.date;
+
+
+        i++
+
+
+    }     else {
+
+
+        button.innerHTML = "DONE!!!";
+
+        button.removeEventListener("click", onClick);
+
+
+        }
+
+
+}
+
+
+function onClick() {
+
+    displayData();
+}
+
 
 
 
