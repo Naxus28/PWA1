@@ -8,64 +8,39 @@
 
 console.log("started");
 
+
+
 /*
+ Extra Credit:
+ Create a function that will validate the “basic” GPA format ‘#.##’. This function will need to run before the first console.log
+ displays the information. If a GPA does not meet the format, just stop the program and display a console.log error message.
+ You may NOT use regular expression for this extra credit.
 
- You will refactor your Mid Term files using the following updates documented below. The items you are adding / changing
- to this refactoring process are as follows:
-
- 1. add and use a constructor,
-
- 2. add and use a prototype:
-
- (Same as the Mid-Term) If you don't already have one, create an empty students array.
-
- DONE - (NEW for the final) Replace the student objects you created in the Mid Term, with a call to the constructor. The
- constructor will create each student object, you will then need to programmatically insert the student object into the
- student's array. An example of your call to the constuctor can be as follows:
- new Student('James Bond', '123 Test Dr', 'Orlando', 'Florida', [2.5, 4.0, 2.2], new Date());
-
- DONE - (NEW for the final) Just like the Mid Term, you will first populate the array of students with at least 2 objects of
- information. Each student object will need to be created using the constructor.
-
- DONE - (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines.
- 1. name
- 2. address
- 3. GPA
- 4. date
- Example:
- Name: James Bond
- Address: 123 Test Dr, Orlando, Florida
- GPA: [2.5, 3.5, 4.0]
- Date: 05/02/13
-
- DONE - (NEW for the final) Add a new object (using a constructor) to the array of student objects above. Use the same technique
- used above to add the new object.
-
- DONE-(Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines. This should display with the new
- object that was just added directly above. Use the same output display as the previous console.log
-
- DONE - There should not be any duplicate code in the main.js or the studentObjects.js file. If there is, you will need to refractor
- the code by creating a function for the duplicate code and then call the function when it is needed.
-
- DONE - All global variables should be located at the very top of the program.
- DONE -  All function calls should be at the bottom of the program.
  */
 
 //VARIABLES AT THE TOP
+ var i = 0;   //used to increment my function "display" - see at the bottom
+
+ var button = document.querySelector(".buttonred");  //stores the class "button" into the "button" var
+
+//variables that calculate the date
  var month;
  var nDate;
  var year;
  var months;
 
+ //Instantiation of the prototype - they are held in global variables
  var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3,3,3],dates());
  var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.2,2.4,3],dates());
  var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.5,2.6,3.3],dates());
 
+ //This is the array of students
  var arrayStudents =[];
- arrayStudents.push(newStudent,oldStudent,youngStudent);
 
-//console.log("array students length: "+arrayStudents.length);
+ arrayStudents.push(newStudent,oldStudent,youngStudent); //pushes students constructed via prototype into the array
 
+
+//CONSOLE LOGS OF STUDENT'S INFORMATION
 console.log( );
 console.log("============================");
 console.log("THIS IS THE FIRST STUDENT");
@@ -85,7 +60,7 @@ students(arrayStudents[2]);
 console.log("============================");
 
 
-//PROTOTYPE
+//PROTOTYPE  - calculates GPA avg
 Student.prototype.avgGpa = function(arrayNumber){
 
     var result = 0;
@@ -112,19 +87,17 @@ console.log("===============================");
 
 
 //BELOW IS THE DISPLAY SECTION
-var button = document.querySelector(".buttonred");
-
-
-
 document.querySelector("#name").innerHTML ="Name: "+ arrayStudents[0].student.name;
 document.querySelector("#address").innerHTML =  "Address: "+ arrayStudents[0].student.address.street +", "+ arrayStudents[0].student.address.city + ", " + arrayStudents[0].student.address.state;
 document.querySelector("#gpa").innerHTML = "GPA: "+ arrayStudents[0].student.GPA[0]+", "+arrayStudents[0].student.GPA[0]+ ", "+ arrayStudents[0].student.GPA[0] ;
 document.querySelector("#gpaavg").innerHTML ="Average GPA: "+ newStudent.avgGpa(arrayStudents[0]);
 document.querySelector("#date").innerHTML= "Date: " +arrayStudents[0].student.date;
 
+
 button.addEventListener("click", onClick);
 
-var i = 0;
+//ALL FUNCTIONS AT THE BOTTOM
+
 function displayData(){
 
     if(i<arrayStudents.length-1){
@@ -141,7 +114,7 @@ function displayData(){
         }
 }
 
-//FUNCTIONS AT THE BOTTOM
+
 function onClick() {
     displayData();
 }
@@ -180,34 +153,3 @@ function students(studentInstance){
 }
 
 
-//console.log("This is the GPA: "+ arrayStudents[0].student.GPA.length);
-
-
-
-/*
-
- (NEW for the final) Before displaying the “Average GPA” using the innerHTML from the Mid Term, a prototype method
- will be used to calculate each student’s Average GPA and return the results.
-
-
-
- Make sure to put comments throughout your code.
- Extra Credit:
- Create a function that will validate the “basic” GPA format ‘#.##’. This function will need to run before the first console.log
- displays the information. If a GPA does not meet the format, just stop the program and display a console.log error message.
- You may NOT use regular expression for this extra credit.
-
- */
-
-//console.log("This is GPA 1 in the obj constructor " + newStudent.GPA[1] + " must be 3");
-//console.log("This is a new student "+ newStudent);
-
-
-//console.log("This is the new student's name: " +arrayStudents[0].student.address);
-//console.log("This is the old student's name: " +arrayStudents[1].student.address);
-//console.log("This is the array of students "+ arrayStudents);
-//console.log("This is the array of students position 0: "+ arrayStudents[0]);
-//console.log("This is the array of students: "+arrayStudents);
-//console.log("testing array 0 ",arrayStudents[0]);
-//console.log("testing array 1 ",arrayStudents[1]);
-//console.log(arrayStudents[1].student.address.street);
