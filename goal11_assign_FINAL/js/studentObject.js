@@ -25,6 +25,11 @@ console.log("started");
  new Student('James Bond', '123 Test Dr', 'Orlando', 'Florida', [2.5, 4.0, 2.2], new Date());
  */
 
+ var month;
+ var nDate;
+ var year;
+ var months;
+
  var arrayStudents =[];
 
  function Student(n,as,ac,ast,grades,date){
@@ -38,6 +43,7 @@ console.log("started");
  this.student.GPA = [grades];
  this.student.date = date;
 
+
 // this.GPA[i] = gradeOne;
 // this.GPA[j] = gradeTwo;
 // this.GPA[k] = gradeThree;
@@ -45,36 +51,46 @@ console.log("started");
 
  }
 
+function dates(){
+    var date = new Date();
+    month = date.getMonth() + 1; // it is 0 based index so we have to add one
+    nDate = date.getDate();//  day of the month // not 0 based//actual day of the month
+    year = date.getFullYear();
+    months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];
+    return months[month] + "/" + nDate + "/" + year;
+}
 
- var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3,3,3],new Date());
- var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3,2.7,3],new Date());
+var newStudent = new Student("Gabriel","Goldenrod","Orlando","Florida",[3," "+3," "+3],dates());
+var oldStudent = new Student("Bob","Caliber Bend","Winter Park","Florida",[3.3," "+2.7," "+3],dates());
+var youngStudent = new Student("Carl","Main","Gainesville","Florida",[3.0," "+2.7," "+3.3],dates());
 
-arrayStudents.push(newStudent,oldStudent);
-
-
+arrayStudents.push(newStudent,oldStudent,youngStudent);
 
  function students(studentInstance){
      console.log("This is the student's name: " +studentInstance.student.name);
-     console.log("This is "+studentInstance.student.name+ "'s street address: "+ studentInstance.student.address.street);
-     console.log("This is "+studentInstance.student.name+ "'s city: "+ studentInstance.student.address.city);
-     console.log("This is "+studentInstance.student.name+ "'s state: "+ studentInstance.student.address.state);
+     console.log("This is "+studentInstance.student.name+ "'s address: "+ studentInstance.student.address.street+", "+studentInstance.student.address.city+", "+studentInstance.student.address.state);
      console.log("This is "+studentInstance.student.name+ "'s GPA: "+ studentInstance.student.GPA);
      console.log("This is the date: "+ studentInstance.student.date);
  }
- //students(newStudent);
 
-
+ console.log( );
+ console.log("============================");
+ console.log("THIS IS THE FIRST STUDENT");
  students(arrayStudents[0]);
  console.log("============================");
  console.log( );
+
+ console.log("============================");
+ console.log("THIS IS THE SECOND STUDENT");
  students(arrayStudents[1]);
+ console.log("============================");
 
-//var date = new Date ();
+ console.log( );
+ console.log("============================");
+ console.log("THIS IS THE THIRD STUDENT");
+ students(arrayStudents[2]);
+ console.log("============================");
 
-var month = date.getMonth() + 1; // it is 0 based index so we have to add one
-var nDate = date.getDate();//  day of the month // not 0 based//actual day of the month
-var year = date.getFullYear();
-var months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];
 
 
 
@@ -86,7 +102,7 @@ var months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];
  information. Each student object will need to be created using the constructor.
 
 
- (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines.
+ DONE - (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines.
  1. name
  2. address
  3. GPA
@@ -99,10 +115,14 @@ var months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];
 
 
 
- (NEW for the final) Add a new object (using a constructor) to the array of student objects above. Use the same technique
+ DONE - (NEW for the final) Add a new object (using a constructor) to the array of student objects above. Use the same technique
  used above to add the new object.
+
+
  (Same as the Mid-Term) Console.log ALL the information in ALL objects on 4 lines. This should display with the new
  object that was just added directly above. Use the same output display as the previous console.log
+
+
  (NEW for the final) Before displaying the “Average GPA” using the innerHTML from the Mid Term, a prototype method
  will be used to calculate each student’s Average GPA and return the results.
  There should not be any duplicate code in the main.js or the studentObjects.js file. If there is, you will need to refractor
