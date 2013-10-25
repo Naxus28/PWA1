@@ -12,10 +12,10 @@
 
 
 //variables
-var barChartX = [50,170,290,410,530,650];
-var barChartY = [-50,-80,-100,-200,-400,-300];
+var barChartX = [80,200,310,430,550,670,790,910,1030];
+var barChartY = [-50,-80,-100,-200,-400,-300,-500,-150,-90];
 var rectWidth = 60;
-var canvasHeight = 450;
+var canvasHeight = 600;
 
 
 //build and append canvas
