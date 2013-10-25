@@ -30,7 +30,11 @@
     canvas.width = 1200;
     canvas.height = 1000;
     var ctx = canvas.getContext("2d");
-//ctx.rotate(360*Math.PI/180);
+
+//shadow
+    ctx.shadowBlur=40;
+    ctx.shadowOffsetX=20;
+    ctx.shadowColor="black";
 
 // title
     ctx.beginPath();
@@ -44,15 +48,12 @@
             ctx.beginPath();
             ctx.fillStyle = "#"+~~(Math.random()*90+10) +""+ ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
             ctx.fillRect(barChartX[i],canvasHeight,rectWidth,barChartY[i]);
-            ctx.shadowBlur=30;
-            ctx.shadowOffsetX=20;
-            ctx.shadowColor="black";
             ctx.fill();
         }
     }
     drawCharts();
 
-//number of the bar and height
+// bar number and height
     function barNumber(){
         for(var j= 0; j<barChartX.length;j++){
         ctx.beginPath();
@@ -63,7 +64,6 @@
         }
     }
     barNumber();
-
 
     function barHeight(){
         for(var k= 0; k<barChartX.length;k++){
@@ -79,7 +79,7 @@
 //function button.onclick
 
     button.onclick = function(){
-        drawCharts();
+       location.reload();
     }
 
 
