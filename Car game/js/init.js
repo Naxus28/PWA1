@@ -193,7 +193,7 @@
     eraseGreenCircle();
 
 
-    //prints out the first title on the canvas  (it is out of the function just below bc the function will be called by a button, which needs to be pressed).
+    //prints out the first  on the canvas  (it is out of the function just below bc the function will be called by a button, which needs to be pressed).
 
     ctx.beginPath();
     ctx.fillStyle = "#" + ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
@@ -334,7 +334,6 @@
 
         ctx.beginPath();
         ctx.fillStyle = "#000000";
-        //console.log("this is fill "+ fill);
         ctx.font = "bold 20px Coronet";     //size of the font and font type
         ctx.fillText(nameRed + " traveled "+ coordinate + " px", 15, 380);
     }
@@ -347,7 +346,7 @@
     var k = 0;
 
     function speedCarTwo(car,rangeOfSpeed,y){
-        l = ~~(Math.random()*rangeOfSpeed+5);
+        l = ~~(Math.random()*rangeOfSpeed)+5;
         ctx.drawImage(car,l+k,y,75,40);
         k=k+l;
         console.log("this is k "+ k);
@@ -453,8 +452,8 @@
         finalLines(2);
         linesAcrossEnd();
 
-        speedCarOne(carRed,40,405);
-        speedCarTwo(carBlue,40,455);
+        speedCarOne(carRed,50,405);
+        speedCarTwo(carBlue,50,455);
 
         positionRed(i);
         positionBlue(k);
