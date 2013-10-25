@@ -24,12 +24,18 @@ document.body.appendChild(canvas);
 canvas.width = 1200;
 canvas.height = 1000;
 var ctx = canvas.getContext("2d");
-ctx.rotate(360*Math.PI/180);
+//ctx.rotate(360*Math.PI/180);
 
+// title
+ctx.beginPath();
+ctx.fillStyle = "#000000";
+ctx.font = "bold 50px Coronet";     //size of the font and font type
+ctx.fillText("BAR CHART ASSIGNMENT", 300, 60);
+
+//function that draws the chart
 function drawCharts(){
     for(var i = 0; i<barChartX.length; i++) {
         ctx.beginPath();
-
         ctx.fillStyle = "#"+~~(Math.random()*90+10) +""+ ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
         ctx.fillRect(barChartX[i],canvasHeight,rectWidth,barChartY[i]);
         ctx.fill();
