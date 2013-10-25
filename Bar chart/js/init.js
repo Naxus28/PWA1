@@ -44,6 +44,9 @@
             ctx.beginPath();
             ctx.fillStyle = "#"+~~(Math.random()*90+10) +""+ ~~(Math.random()*90+10)+ ~~(Math.random()*90+10);
             ctx.fillRect(barChartX[i],canvasHeight,rectWidth,barChartY[i]);
+            ctx.shadowBlur=30;
+            ctx.shadowOffsetX=20;
+            ctx.shadowColor="black";
             ctx.fill();
         }
     }
