@@ -20,7 +20,9 @@
 
 //button
     var button = document.querySelector("button");
-
+    button.style.position="absolute";
+    button.style.left ="80px";
+    button.style.bottom ="300px";
 
 //build and append canvas
     var canvas = document.createElement("canvas");
