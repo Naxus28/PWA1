@@ -45,12 +45,28 @@
 
 //number of the bar and height
     function barNumber(){
-        for(var j= 0<barChartX.length;j++)
-            ctx.beginPath();
+        for(var j= 0; j<barChartX.length;j++){
+        ctx.beginPath();
         ctx.fillStyle = "#000000";
         ctx.font = "25px Coronet";
-        ctx.fillText("Bar "+(j+1), barChartX[j], 630);
+        ctx.fillText("Bar "+(j+1), barChartX[j]+3, 630);
+
+        }
     }
     barNumber();
 
+
+    function barHeight(){
+        for(var k= 0; k<barChartX.length;k++){
+            ctx.beginPath();
+            ctx.fillStyle = "#000000";
+            ctx.font = "25px Coronet";
+            ctx.fillText("Height "+-barChartY[k], barChartX[k]-2, canvasHeight+barChartY[k]-3);
+         }
+    }
+
+    barHeight();
+
+
 })();
+
