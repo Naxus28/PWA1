@@ -18,6 +18,10 @@
     var rectWidth = 60;
     var canvasHeight = 600;
 
+//button
+    var button = document.querySelector("button");
+
+
 //build and append canvas
     var canvas = document.createElement("canvas");
     document.body.appendChild(canvas);
@@ -60,12 +64,18 @@
         for(var k= 0; k<barChartX.length;k++){
             ctx.beginPath();
             ctx.fillStyle = "#000000";
-            ctx.font = "25px Coronet";
-            ctx.fillText("Height "+-barChartY[k], barChartX[k]-2, canvasHeight+barChartY[k]-3);
+            ctx.font = "15px Coronet";
+            ctx.fillText("Height "+-barChartY[k], barChartX[k]-4, canvasHeight+barChartY[k]-5);
          }
     }
 
     barHeight();
+
+//function button.onclick
+
+    button.onclick = function(){
+        drawCharts();
+    }
 
 
 })();
