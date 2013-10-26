@@ -31,7 +31,7 @@
     var button = document.querySelector("button");
     button.style.position="absolute";
     button.style.left ="80px";
-    button.style.bottom ="600px";
+    button.style.bottom ="550px";
 
 //build and append canvas
     var canvas = document.createElement("canvas");
@@ -80,7 +80,7 @@
             ctx.beginPath();
             ctx.fillStyle = "#000000";
             ctx.font = "15px Coronet";
-            ctx.fillText("Height "+-barChartY[k], barChartX[k]-4, canvasHeight+barChartY[k]-5);
+            ctx.fillText("Height "+-barChartY[k] +" px ", barChartX[k]-7, canvasHeight+barChartY[k]-5);
          }
     }
 
