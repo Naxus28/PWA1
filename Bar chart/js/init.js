@@ -9,20 +9,29 @@
 (function(){
 
     console.log("started");
+
+//variables for the height - random - bar chart will change when button is clicked
+    var randomHeightOne = ~~(-Math.random()*200-10);
+    var randomHeightTwo = ~~(-Math.random()*400-10);
+    var randomHeightThree = ~~(-Math.random()*100-10);
+    var randomHeightFour = ~~(-Math.random()*520-10);
+    var randomHeightFive= ~~(-Math.random()*500-10);
+    var randomHeightSix = ~~(-Math.random()*300-10);
+    var randomHeightSeven = ~~(-Math.random()*150-10);
+    var randomHeightEight = ~~(-Math.random()*250-10);
+    var randomHeightNine = ~~(-Math.random()*550-10);
+
 //array of numbers
-
-
-//variables
     var barChartX = [80,200,310,430,550,670,790,910,1030];
-    var barChartY = [-50,-80,-100,-200,-400,-300,-500,-150,-90];
+    var barChartY = [randomHeightOne,randomHeightTwo,randomHeightThree,randomHeightFour,randomHeightFive,randomHeightSix,randomHeightSeven,randomHeightEight,randomHeightNine];
     var rectWidth = 60;
-    var canvasHeight = 600;
+    var canvasHeight = 650;
 
 //button
     var button = document.querySelector("button");
     button.style.position="absolute";
     button.style.left ="80px";
-    button.style.bottom ="300px";
+    button.style.bottom ="600px";
 
 //build and append canvas
     var canvas = document.createElement("canvas");
@@ -53,18 +62,19 @@
     }
     drawCharts();
 
-// bar number and height
+// bar number display
     function barNumber(){
         for(var j= 0; j<barChartX.length;j++){
         ctx.beginPath();
         ctx.fillStyle = "#000000";
         ctx.font = "25px Coronet";
-        ctx.fillText("Bar "+(j+1), barChartX[j]+3, 630);
+        ctx.fillText("Bar "+(j+1), barChartX[j]+3, canvasHeight+30);
 
         }
     }
     barNumber();
 
+// height display
     function barHeight(){
         for(var k= 0; k<barChartX.length;k++){
             ctx.beginPath();
