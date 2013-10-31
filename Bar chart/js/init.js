@@ -11,9 +11,9 @@
     console.log("started");
 
 //variables for the height - random - bar chart will change when button is clicked
-    var randomHeightOne = ~~(-Math.random()*200-10);
-    var randomHeightTwo = ~~(-Math.random()*400-10);
-    var randomHeightThree = ~~(-Math.random()*100-10);
+    var randomHeightOne = ~~(-Math.random()*200-10); //the -10 is to make the minimum height 10 (remember that the rectangles are
+    var randomHeightTwo = ~~(-Math.random()*400-10); //drawn upside down by default and we need to put a minus sign in front of
+    var randomHeightThree = ~~(-Math.random()*100-10); //it to invert the side
     var randomHeightFour = ~~(-Math.random()*520-10);
     var randomHeightFive= ~~(-Math.random()*500-10);
     var randomHeightSix = ~~(-Math.random()*300-10);
@@ -87,7 +87,6 @@
     barHeight();
 
 //function button.onclick
-
     button.onclick = function(){
        location.reload();
     }

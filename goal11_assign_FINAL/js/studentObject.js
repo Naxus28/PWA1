@@ -124,7 +124,7 @@ console.log("started");
 
     function dates(){
         var date = new Date();
-        month = date.getMonth() + 1; // it is 0 based index so we have to add one
+        month = date.getMonth();
         nDate = date.getDate();//  day of the month // not 0 based//actual day of the month
         year = date.getFullYear();
         months = ["1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12"];

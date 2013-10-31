@@ -279,14 +279,14 @@
         ctx.lineTo(50,450);
 
         var increment=50;
-        for(var i=0;i<11; i++){            //loops through and paints the "dotted" lines of the middle
-            console.log("in the loop");    //until the end of the canvas - 11 loops because the line increments by 100 px every loop
+        for(var i=0;i<11; i++){            //loops through and paints the "dotted" lines on the middle
+            //console.log("in the loop");    //until the end of the canvas - 11 loops because the line increments by 100 px every loop
             ctx.moveTo(2*increment,450);    //the starting point is 50 and the second line starts at 150 - this leaves 50 px blank.
             ctx.lineTo(2*increment+50,450); // The loop reiterates the pattern
             increment=increment+50;
             ctx.stroke();
         }
-        console.log(increment);
+        //console.log(increment);
 
     }
 
@@ -308,17 +308,37 @@
         j = ~~(Math.random()*rangeOfSpeed+5);
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
-        console.log("this is i "+i);
+        //console.log("this is i "+i);
     }
 
     function speedCarOneTurbo(car,rangeOfSpeed,y){
         j = ~~(Math.random()*rangeOfSpeed*5+20);
         ctx.drawImage(car,j+i,y,75,40);
         i=i+j;
-        console.log("this is i in the turbo "+i);
+        //console.log("this is i in the turbo "+i);
     }
 
-    //will print out to the canvas the position of the red car in pixels. changes every time the button is clicked
+//this does the same as the functions above, but for the blue car.
+
+    var l;
+    var k = 0;
+
+    function speedCarTwo(car,rangeOfSpeed,y){
+        l = ~~(Math.random()*rangeOfSpeed)+5;
+        ctx.drawImage(car,l+k,y,75,40);
+        k=k+l;
+        //console.log("this is k "+ k);
+    }
+
+    function speedCarTwoTurbo(car,rangeOfSpeed,y){
+        l = ~~(Math.random()*rangeOfSpeed*5+20);
+        ctx.drawImage(car,l+k,y,75,40);
+        k=k+l;
+        //console.log("this is k in the turbo "+k);
+    }
+
+
+//will print out to the canvas the position of the red car in pixels. changes every time the button is clicked
 
     ctx.beginPath();
     ctx.fillStyle = "#000000";
@@ -336,30 +356,10 @@
         ctx.fillStyle = "#000000";
         ctx.font = "bold 20px Coronet";     //size of the font and font type
         ctx.fillText(nameRed + " traveled "+ coordinate + " px", 15, 380);
+
     }
 
-    //this does the same as the function above, but for the blue car. Notice that when I call the two functions below
-    //I am passing a higher speed range for the blue car. This increases the chance of Blue car winning, but since the numbers
-    //are generated randomly, the red car can still win.
-
-    var l;
-    var k = 0;
-
-    function speedCarTwo(car,rangeOfSpeed,y){
-        l = ~~(Math.random()*rangeOfSpeed)+5;
-        ctx.drawImage(car,l+k,y,75,40);
-        k=k+l;
-        console.log("this is k "+ k);
-    }
-
-    function speedCarTwoTurbo(car,rangeOfSpeed,y){
-        l = ~~(Math.random()*rangeOfSpeed*5+20);
-        ctx.drawImage(car,l+k,y,75,40);
-        k=k+l;
-        console.log("this is k in the turbo "+k);
-    }
-
-    //will print out to the canvas the position of the blue car in pixels. changes every time the button is clicked
+//will print out to the canvas the position of the blue car in pixels. changes every time the button is clicked
 
     ctx.beginPath();
     ctx.fillStyle = "#000000";
@@ -378,6 +378,7 @@
         ctx.fillText(nameBlue+" traveled "+ coordinate + " px", 15, 540);
     }
 
+
     buttonThree.addEventListener("click",drawCircle);   //will trigger the draw circle function, which draws the lights (red, yellow, green)
 
     var trackLimit=1076;
@@ -395,7 +396,7 @@
 
     function winnerCheck(){                           //this function will change the title depending on the winner
                                                      //it also puts the picture of the winner car on the canvas
-        if(i<trackLimit && k<trackLimit ){
+        if(i<trackLimit && k<trackLimit){
             title("SUPER RACE 2013", ~~(Math.random()*90+10) +""+  ~~(Math.random()*90+10)+ ~~(Math.random()*90+10));
 
         }
@@ -417,9 +418,10 @@
             ctx.rect(270,10,700,70);
             ctx.fill();
 
+            imageRedCarWin();
             title(nameRed+" WINS !!", "ff"+""+0+""+0+""+0+""+0);
 
-            imageRedCarWin();
+
             counterRed++;
         }
 
@@ -429,24 +431,24 @@
             ctx.rect(270,10,700,70);
             ctx.fill();
 
+            imageBlueCarWin();
             title(nameBlue +" WINS !!", 0+""+0+""+0+""+0+"ff");
 
-            imageBlueCarWin();
+
             counterBlue++;
         }
     }
 
 
     buttonOne.onclick = function speed(){
-
         ctx.beginPath();                     //This creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
-        ctx.rect(i-1,405,75,40);             //In other words, when the car moves, the previous car will be erased from
+        ctx.rect(i-2,405,78,40);             //In other words, when the car moves, the previous car will be erased from
         ctx.fill();                          //the canvas
 
         ctx.beginPath();
         ctx.fillStyle = "#FFFFFF";
-        ctx.rect(k-1,455,75,40);
+        ctx.rect(k-2,455,78,40);
         ctx.fill();
 
         finalLines(2);
@@ -455,20 +457,18 @@
         speedCarOne(carRed,50,405);
         speedCarTwo(carBlue,50,455);
 
+        winnerCheck();
+
         positionRed(i);
         positionBlue(k);
 
-        winnerCheck()
+
     };
 
    //The button below calls most of the functions. Some functions trigger others. Attention to order of calls here. Very important
     //to make things work out correctly and print out correctly on the canvas
 
     buttonTurbo.onclick = function turbo(){
-
-        positionRed(i);
-        positionBlue(k);
-
         ctx.beginPath();                     //This creates a white rectangle that will fill in the position
         ctx.fillStyle = "#FFFFFF";           //of the car once it moves to the new position
         ctx.rect(i-1,405,85,40);             //In other words, when the car moves, the previous car will be erased from
@@ -485,10 +485,12 @@
         speedCarOneTurbo(carRed,40,405);
         speedCarTwoTurbo(carBlue,40,455);
 
+        winnerCheck();
+
         positionRed(i);
         positionBlue(k);
 
-        winnerCheck()
+
     };
 
      buttonTwo.onclick = function newRace(){
